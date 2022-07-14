@@ -1,7 +1,6 @@
 .MealPrepMain{
     position: fixed;
     width: 80%;
-    height: 95%;
-    bottom: 0;
-    border: solid;
+    height: 100%;
+    top: 20px;
 }

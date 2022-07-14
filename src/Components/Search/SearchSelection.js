@@ -3,7 +3,7 @@ import './SearchSelection.css';
 
 const SearchSelection = () => {
     return (
-        <div>
+        <div className='SearchSelection'>
             SearchSelection
         </div>
     );

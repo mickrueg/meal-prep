@@ -1,14 +1,15 @@
-.SearchContainer{
+.InfoContainer{
     position: fixed;
     width: 100%;
     height: 100%;
-    top: calc(100% - 50px);
+    top: 50px;
     display: flex;
     justify-content: center;
-    background-color: #d1e0b4;
+    background-color: white;
+    border-radius: 30px;
 }
 
-.SearchMain{
+.InfoMain{
     margin-top: 10px;
     width: 80%;
     height: auto;
