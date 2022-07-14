@@ -1,0 +1,16 @@
+.SearchContainer{
+    position: fixed;
+    border: solid;
+    width: 100%;
+    height: 100%;
+    top: 90%;
+    display: flex;
+    justify-content: center;
+    background-color: #d1e0b4;
+}
+
+.SearchMain{
+    border: solid;
+    width: 80%;
+    height: auto;
+}
