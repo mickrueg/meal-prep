@@ -1,3 +1,68 @@
 .SearchSelection{
 
 }
+
+
+.mealChoices{
+    font-weight: bold;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mealChoice{
+    cursor: pointer;
+    list-style-type: none;
+    list-style: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mealChoice.selected{
+    background-color: #4f6d43;
+    border-radius: 20px;
+    color: white;
+    transition: 200ms ease;
+}
+
+.searchBox{
+    font-weight: bold;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:right;
+    align-content: center;
+}
+
+.searchBoxInput{
+    font-family: 'Anonymous Pro', monospace;
+    width:10px;
+    flex-grow: 1;
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.searchBoxButton{
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: bold;
+    color: white;
+    background-color: #4f6d43;
+    border-style: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

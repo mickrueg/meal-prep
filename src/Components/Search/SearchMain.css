@@ -2,14 +2,31 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    top: calc(100% - 42px);
     display: flex;
     justify-content: center;
+    top: calc(100% - 42px);
+    top: 40px;
     background-color: #d1e0b4;
+    transition: 500ms ease;
 }
 
 .SearchMain{
     margin-top: 10px;
     width: 80%;
     height: auto;
+}
+
+@media only screen and (min-width: 700px){
+    .SearchContainer{
+        right: 0;
+        top: 0;
+        width: 68.5%;
+        transition: 500ms ease;
+        justify-content: left;
+    }
+    .SearchMain{
+        margin-left: 4.5%;
+        width: 40%;
+        margin-top: 30px;
+    }
 }

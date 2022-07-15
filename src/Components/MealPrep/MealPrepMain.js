@@ -5,10 +5,12 @@ import MealPrepMeals from './MealPrepMeals';
 
 const MealPrepMain = () => {
     return (
-        <div className='MealPrepMain'>
-            <h1>Meal Prep</h1>
-            <MealPrepMeals />
-            <MealPrepList />
+        <div className='MealPrepContainer'>
+            <div className='MealPrepMain'>
+                <h1>Meal Prep</h1>
+                <MealPrepMeals />
+                <MealPrepList />
+            </div>
         </div>
     );
 };
