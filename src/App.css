@@ -2,7 +2,7 @@
 
 .App {
     font-family: 'Anonymous Pro', monospace;
-    color: #4f6d43;
+    color: #21313c;
     font-size:small;
     position: absolute;
     width: 100%;
@@ -24,4 +24,9 @@ h2{
     font-size: medium;
     margin: 0;
     padding: 5px;
+}
+
+hr{
+    border-style: solid;
+    border-width: .5px;
 }

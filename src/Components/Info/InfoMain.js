@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import InfoList from './InfoList';
 import './InfoMain.css';
 import InfoMeal from './InfoMeal';
+import { InfoContext } from './InfoContext';
 
 const InfoMain = () => {
+    const {infoState} = useContext(InfoContext);
     return (
-        <div className='InfoContainer'>
+        <div className={infoState}>
             <div className='InfoMain'>
                 <h1>Info Main</h1>
                 <InfoMeal />

@@ -11,6 +11,10 @@ const SearchSelection = () => {
         setSearchfield('search-field selected')
     }
 
+    function search(e){
+        e.preventDefault();
+    }
+
     return (
         
         <div className='SearchSelection'>
@@ -24,7 +28,7 @@ const SearchSelection = () => {
                     }
                     })}
                 </ul>
-                <form className='searchBox'>
+                <form className='searchBox' onSubmit={search}>
                     <input className='searchBoxInput' type="text" placeholder="Search meals..."/>
                     <button className='searchBoxButton' type="submit">search</button>
                 </form >

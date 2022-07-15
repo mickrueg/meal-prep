@@ -1,19 +1,23 @@
 .InfoContainer{
     position: fixed;
-    width: 100%;
+    width: 95%;
     height: 100%;
     top: 100%;
-    top: 80px;
     display: flex;
     justify-content: center;
     background-color: white;
     border-radius: 30px;
     transition: 500ms ease;
+    z-index: 2;
+}
+
+.InfoContainer.Up{
+    top: 100px;
 }
 
 .InfoMain{
     margin-top: 10px;
-    width: 80%;
+    width: 85%;
     height: auto;
 }
 

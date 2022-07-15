@@ -4,20 +4,24 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    top: calc(100vh - 42px);
+    top: calc(100% - 48px);
     background-color: #d1e0b4;
     transition: 300ms ease;
-    z-index: 2;
 }
 
 .SearchContainer.Up{
-    top: 40px;
+    top: 55px;
 }
 
 .SearchMain{
     margin-top: 10px;
-    width: 80%;
+    width: 90%;
     height: auto;
+}
+
+.SearchHeader{
+    display: flex;
+    justify-content: space-between;
 }
 
 @media only screen and (min-width: 700px){
@@ -33,5 +37,8 @@
         margin-left: 4.5%;
         width: 40%;
         margin-top: 30px;
+    }
+    .arrow{
+        display: none;
     }
 }

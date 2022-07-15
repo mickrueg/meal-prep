@@ -4,6 +4,7 @@ import './MealPrepMeals.css';
 const MealPrepMeals = () => {
     return (
         <div className='MealPrepMeals'>
+            <hr></hr>
             MealPrepMeals
         </div>
     );

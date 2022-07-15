@@ -23,6 +23,11 @@
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    align-self: center;
+    border: solid;
+    border-color: white;
+    border-radius: 20px;
+    border-width: 2px;
 }
 
 .mealChoice.selected{
@@ -36,6 +41,7 @@
     font-weight: bold;
     background-color: white;
     border-radius: 20px;
+    border: white;
     display: flex;
     flex-wrap: wrap;
     justify-content:right;
@@ -58,7 +64,8 @@
     font-weight: bold;
     color: white;
     background-color: #4f6d43;
-    border-style: none;
+    border: solid;
+    border-width: 2px;
     border-radius: 20px;
     margin-left: 10px;
     padding-top: 5px;
