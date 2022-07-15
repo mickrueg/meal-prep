@@ -1,3 +1,48 @@
 .SearchResults{
-margin: 5px;
+    margin: 5px;
+    margin-top: 40px;
+}
+
+.resultContainer{
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 1fr;
+}
+
+.resultContainer .label{
+    margin-left: 10px;
+}
+
+img.resultImage{
+    grid-area: 1 / 1 ;
+    height: 120px;
+}
+
+.textContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.buttonContainer{
+    display: flex;
+    width: 100%;
+}
+
+.greenButton{
+    font-size: medium;
+    align-self: center;
+    cursor: pointer;
+    background-color: #7e9b65;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    border-width: 2px;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
