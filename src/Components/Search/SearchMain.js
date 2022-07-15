@@ -11,20 +11,20 @@ const SearchMain = () => {
         return (searchContainer==='SearchContainer' ?setSearchContainer('SearchContainer Up') : setSearchContainer('SearchContainer'));
     }
     return (
-        <Draggable 
-            nodeRef={nodeRef} 
-            grid={[0,0]}
-            // bounds='parent'
-            onStop={mobileSnap}
-            axis='y'>
+        // <Draggable 
+        //     nodeRef={nodeRef} 
+        //     grid={[0,0]}
+        //     // bounds='parent'
+        //     onStop={mobileSnap}
+        //     axis='y'>
             <div className={searchContainer} ref={nodeRef}>
                 <div className='SearchMain'>
-                    <h1>Search</h1>
+                    <h1 onClick={mobileSnap}>Search</h1>
                     <SearchSelection />
                     <SearchResults />
                 </div>
             </div>
-        </Draggable>
+        // </Draggable>
 
     );
 };
