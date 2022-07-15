@@ -4,10 +4,14 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    top: calc(100% - 42px);
-    top: 40px;
+    top: calc(100vh - 42px);
     background-color: #d1e0b4;
-    transition: 500ms ease;
+    transition: 300ms ease;
+    z-index: 2;
+}
+
+.SearchContainer.Up{
+    top: 40px;
 }
 
 .SearchMain{
@@ -17,12 +21,13 @@
 }
 
 @media only screen and (min-width: 700px){
-    .SearchContainer{
+    .SearchContainer, .SearchContainer.Up{
         right: 0;
         top: 0;
         width: 68.5%;
-        transition: 500ms ease;
+        transition: 200ms ease;
         justify-content: left;
+        z-index: 2;
     }
     .SearchMain{
         margin-left: 4.5%;

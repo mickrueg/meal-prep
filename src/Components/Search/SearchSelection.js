@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './SearchSelection.css';
 
+
 const SearchSelection = () => {
     const mealTypes = ['breakfast', 'lunch', 'dinner', 'all'];
     const [mealChoiceSelected, setMealChoiceSelected] = useState('all');
@@ -11,6 +12,7 @@ const SearchSelection = () => {
     }
 
     return (
+        
         <div className='SearchSelection'>
             <div className={searchfield} onClick={clickHandler}>
                 <ul className="mealChoices">

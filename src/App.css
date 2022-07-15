@@ -1,24 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Comfortaa:wght@400;500;600;700&display=swap');
 
-.background-image{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-image: url('./assets/mobileBackground.jpg');
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: 500ms ease;
-}
-
-.background-overlay{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    opacity: .8;
-}
-
 .App {
     font-family: 'Anonymous Pro', monospace;
     color: #4f6d43;
@@ -43,12 +24,4 @@ h2{
     font-size: medium;
     margin: 0;
     padding: 5px;
-}
-
-@media only screen and (min-width: 700px){
-    .background-image{
-        background-image: url('./assets/desktopBackground.jpg');
-        background-position: left;
-        transition: 500ms ease;
-    }
 }
