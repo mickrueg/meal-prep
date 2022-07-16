@@ -45,7 +45,9 @@ const SearchMain = () => {
                             </svg>
                         </div>
                         <SearchSelection />
-                        <SearchResults />
+                        <div className='SearchResultsContainer'>
+                            <SearchResults />
+                        </div>
                     </div>
                 </div>
         </Draggable>

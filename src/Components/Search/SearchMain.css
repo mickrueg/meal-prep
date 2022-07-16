@@ -4,11 +4,10 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    /* top: calc(100% - 48px); */
-    top: 55px;
+    top: calc(100% - 48px);
+    /* top: 55px; */
     background-color: #d1e0b4;
     transition: 300ms ease;
-    overflow-y: scroll;
 }
 
 .SearchContainer.Up{
@@ -26,6 +25,14 @@
     justify-content: space-between;
 }
 
+.SearchResultsContainer{
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: scroll;
+
+}
+
 @media only screen and (min-width: 700px){
     .SearchContainer, .SearchContainer.Up{
         right: 0;
@@ -37,7 +44,8 @@
     }
     .SearchMain{
         margin-left: 4.5%;
-        width: 40%;
+        padding-right: 2%;
+        width: 42%;
         margin-top: 30px;
     }
     .arrow{
