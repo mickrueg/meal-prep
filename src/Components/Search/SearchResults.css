@@ -1,5 +1,6 @@
 .SearchResults{
     margin: 5px;
+    margin-bottom: 200px;
 }
 
 .resultContainer{
@@ -29,19 +30,3 @@ img.resultImage{
     width: 100%;
 }
 
-.greenButton{
-    font-size: medium;
-    align-self: flex-start;
-    cursor: pointer;
-    background-color: #7e9b65;
-    border-radius: 20px;
-    font-weight: bold;
-    color: white;
-    border-width: 2px;
-    border-radius: 20px;
-    margin-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}

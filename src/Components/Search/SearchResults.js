@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './SearchResults.css';
 import searchResults from '../example.json';
 import imageNA from "../../assets/imageNA.png";
+import { InfoContext } from '../Info/InfoContext';
 
 
 const SearchResults = () => {
+    
     const searchResultsArray = searchResults.hits;
-    console.log(searchResultsArray[19].recipe.image);
-    // const url = searchResultsArray[19].recipe.image;
+    const { infoState, setInfoState,
+        mealImage, setMealImage,
+        mealLabel, setMealLabel,
+        mealIngredients, setMealIngredients,
+        mealIngrQuantities,setMealIngrQuantities } 
+        = useContext(InfoContext);
 
-//     function httpGetAsync(url, callback)
-// {
-//     var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.onreadystatechange = function() { 
-//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-//             callback(xmlHttp.responseText);
-//     }
-//     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-//     xmlHttp.send(null);
-// }
-
-return (
-    <div className='SearchResults'>
+    const openIngredientPanel = (mealSelected) =>{
+        setInfoState('InfoContainer Up');
+        setMealImage(mealSelected.recipe.image);
+        setMealLabel(mealSelected.recipe.label);
+        console.log(mealSelected.recipe.label)
+        // console.log(mealSelected);
+    }
+    
+    // useEffect(()=>{
+    //     console.log(meal['recipe']['label'])
+    // })
+    return (
+        <div className='SearchResults'>
             {searchResultsArray.map((e,index)=>{
 
                 return(
@@ -38,25 +44,16 @@ return (
                         <div className='textContainer'>
                             <h2 className='label'>{e.recipe.label}</h2>
                             <div className='buttonContainer'>
-                                <span className='greenButton'>Ingredients</span>
+                                <span className='greenButton' onClick={()=>{openIngredientPanel(e)}}>Ingredients</span>
                             </div>
                             <div className='buttonContainer'>
                                 <span className='greenButton'>Recipe</span>
                             </div>
                             <div></div>
                         </div>
-
                     </div>
                 )
             })}
-             <div className='resultContainer'>
-                        <img src={searchResultsArray[19].recipe.image} alt='pizza' className='resultImage'/>
-                        <div className='textContainer'>
-                            <h2 className='label'>{searchResultsArray[0].recipe.label}</h2>
-                            <span className='greenButton'>Ingredients</span>
-                            <span className='greenButton'>Recipe</span>
-                        </div>
-                    </div>
         </div>
     );
 };

@@ -1,3 +1,22 @@
 .InfoMeal{
     margin: 5px;
 }
+
+.MealImage{
+    width: 100%;
+}
+
+
+.IngredientHeaderContainer{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding-right: 5px;
+    border: solid;
+}
+
+
+.IngredientHeaderContainer .greenButton{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

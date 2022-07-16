@@ -30,3 +30,20 @@ hr{
     border-style: solid;
     border-width: .5px;
 }
+
+.greenButton{
+    font-size: medium;
+    align-self: center;
+    cursor: pointer;
+    background-color: #7e9b65;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    border-width: 2px;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
