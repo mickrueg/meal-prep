@@ -8,10 +8,12 @@ import { InfoContext } from './Components/Info/InfoContext';
 
 function App() {
   const [infoState, setInfoState] = useState('InfoContainer');
-  const [mealImage, setMealImage] = useState()
-  const [mealLabel, setMealLabel] = useState()
-  const [mealIngredients, setMealIngredients] = useState()
-  const [mealIngrQuantities, setMealIngrQuantities] = useState()
+  const [mealImage, setMealImage] = useState();
+  const [mealLabel, setMealLabel] = useState();
+  const [mealIngredients, setMealIngredients] = useState();
+  const [mealIngrQuantities, setMealIngrQuantities] = useState();
+  const [searchKeyword, setSearchKeyword] = useState();
+  const [mealType, setMealType] = useState('all');
 
   return (
     <div className="App">
@@ -22,7 +24,9 @@ function App() {
           mealImage, setMealImage,
           mealLabel, setMealLabel,
           mealIngredients, setMealIngredients,
-          mealIngrQuantities,setMealIngrQuantities}
+          mealIngrQuantities,setMealIngrQuantities,
+          searchKeyword, setSearchKeyword,
+          mealType, setMealType}
         }>
           <SearchMain/>
           <InfoMain />

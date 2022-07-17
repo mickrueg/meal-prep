@@ -7,10 +7,22 @@
     transition: 500ms ease;
 }
 
+.MealPrepHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
 .MealPrepMain{
     width: 90%;
     height: auto;
     margin-top: 20px;
+}
+
+img.Edamam{
+    height: 40px;
+    margin-right: -50px;
+    margin-top: -7px;
+    margin-bottom: -10px;
 }
 
 @media only screen and (min-width: 700px){
@@ -24,4 +36,5 @@
     .MealPrepMain{
         margin-top: 30px;
     }
+
 }

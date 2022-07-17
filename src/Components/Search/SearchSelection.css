@@ -13,6 +13,7 @@
     align-content: center;
     padding-left: 0;
     padding-right: 0;
+    font-size: 14px;
 }
 
 .mealChoice{
@@ -31,7 +32,7 @@
 }
 
 .mealChoice.selected{
-    background-color: #4f6d43;
+    background-color: #21313caa;
     border-radius: 20px;
     color: white;
     transition: 200ms ease;
@@ -39,7 +40,6 @@
 
 .searchBox{
     font-weight: bold;
-    background-color: white;
     border-radius: 20px;
     border: white;
     display: flex;
@@ -50,26 +50,35 @@
 
 .searchBoxInput{
     font-family: 'Anonymous Pro', monospace;
+    font-size: 14px;
     width:10px;
     flex-grow: 1;
-    margin-left: 10px;
     border: none;
-    background-color: transparent;
+    background-color: white;
+    padding-left: 10px;
     resize: none;
     outline: none;
+    border-radius: 20px;
 }
 
 .searchBoxButton{
     font-family: 'Anonymous Pro', monospace;
     font-weight: bold;
+    font-size: 14px;
     color: white;
-    background-color: #4f6d43;
+    background-color: #7e9b65;
     border: solid;
     border-width: 2px;
     border-radius: 20px;
+    border-color: #7e9b65;
     margin-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
+}
+
+.RecipeLink{
+    text-decoration: none;
 }
