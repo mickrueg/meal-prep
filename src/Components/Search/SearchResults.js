@@ -14,7 +14,7 @@ const SearchResults = () => {
         setMealIngredients,
         setMealIngrQuantities,
         searchKeyword, setSearchKeyword,
-        mealType } 
+        mealType, setMealType } 
         = useContext(InfoContext);
     
     const openIngredientPanel = (mealSelected) =>{
@@ -23,14 +23,15 @@ const SearchResults = () => {
         setMealLabel(mealSelected.recipe.label);
     }
 
+    
     const url= `https://api.edamam.com/api/recipes/v2?type=public&q=${searchKeyword}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
 
     useEffect(()=>{
         // fetch(`../example.json`)
-        fetch(url)
+        fetch(mealType==='all'? url : url+`&mealType=${mealType}`)
         .then(res=>res.json())
         .then(res=>{
-            console.log("Fetch")
+            console.log(`Fetch keyword [${searchKeyword}] & meal type [${mealType}]`)
             const searchResultsArray = res.hits;
             setDisplayResults(
                 searchResultsArray.map((e, index)=>{
@@ -77,7 +78,7 @@ const SearchResults = () => {
             )
         })
         .catch(console.error)
-    },[searchKeyword])
+    },[searchKeyword, mealType])
 
     return (
         <div className='SearchResults'>

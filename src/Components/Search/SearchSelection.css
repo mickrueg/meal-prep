@@ -32,7 +32,7 @@
 }
 
 .mealChoice.selected{
-    background-color: #21313caa;
+    background-color: #7e9b65;
     border-radius: 20px;
     color: white;
     transition: 200ms ease;
@@ -46,6 +46,7 @@
     flex-wrap: wrap;
     justify-content:right;
     align-content: center;
+    background-color: white;
 }
 
 .searchBoxInput{
@@ -70,7 +71,6 @@
     border: solid;
     border-width: 2px;
     border-radius: 20px;
-    border-color: #7e9b65;
     margin-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
