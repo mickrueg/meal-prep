@@ -62,7 +62,10 @@ const SearchResults = () => {
                                 <div className='textContainer'>
                                     <h2 className='label'>{e.recipe.label}</h2>
                                     <div className='buttonContainer'>
-                                        <span className='greenButton' onClick={()=>{openIngredientPanel(e)}}>Ingredients</span>
+                                        <span className='greenButton' onClick={()=>{
+                                            openIngredientPanel(e)
+                                            setMealIngredients(e.recipe.ingredients)
+                                            }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
                                         <a href={e.recipe.url} target="_blank" rel='noreferrer' className='RecipeLink'>

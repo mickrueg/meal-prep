@@ -1,16 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './InfoMeal.css';
 import { InfoContext } from '../Info/InfoContext';
 
 
 const InfoMeal = () => {
-    const { infoState, setInfoState,
-        mealImage, setMealImage,
-        mealLabel, setMealLabel,
-        mealIngredients, setMealIngredients,
-        mealIngrQuantities,setMealIngrQuantities } 
+    const { 
+        mealImage,
+        mealIngredients} 
         = useContext(InfoContext);
-    const [imageRender, setImageRender] = useState({display: "block"})
+
+    useEffect(()=>{
+        console.log(mealIngredients)
+    }) 
 
     return (
         <div className='InfoMeal'>
@@ -21,7 +22,6 @@ const InfoMeal = () => {
                 onError={({currentTarget})=>{
                     currentTarget.onerror = null;
                     console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
-                    // currentTarget.src=imageNA;
                     currentTarget.style.display = 'none';
                 }}/>
             <div className='IngredientHeaderContainer'>
