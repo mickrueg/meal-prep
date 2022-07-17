@@ -14,9 +14,16 @@
     margin-left: 10px;
 }
 
+.imageContainer{
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+}
+
 img.resultImage{
     grid-area: 1 / 1 ;
     height: 120px;
+    
 }
 
 .textContainer{
