@@ -3,29 +3,32 @@ import './SearchResults.css';
 import imageNA from "../../assets/imageNA.png";
 import { InfoContext } from '../Info/InfoContext';
 
-
+//Search Functionality
 const SearchResults = () => {
     
+    //States
     const [displayResults, setDisplayResults] = useState()
-    
     const { setInfoState,
         setMealImage,
         setMealLabel,
-        setMealIngredients,
+        mealIngredients, setMealIngredients,
         setMealIngrQuantities,
+        mealSelected,setMealSelected,
         searchKeyword, setSearchKeyword,
         mealType, setMealType } 
         = useContext(InfoContext);
     
-    const openIngredientPanel = (mealSelected) =>{
+    //Open & close Ingredient Panel Function
+    const openIngredientPanel = () =>{
         setInfoState('InfoContainer Up');
-        setMealImage(mealSelected.recipe.image);
-        setMealLabel(mealSelected.recipe.label);
+
     }
 
-    
+    //Link to API
     const url= `https://api.edamam.com/api/recipes/v2?type=public&q=${searchKeyword}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
 
+
+    //UseEffect to fetch from API each time a new search is performed
     useEffect(()=>{
         // fetch(`../example.json`)
         fetch(mealType==='all'? url : url+`&mealType=${mealType}`)
@@ -35,22 +38,26 @@ const SearchResults = () => {
             const searchResultsArray = res.hits;
             setDisplayResults(
                 searchResultsArray.map((e, index)=>{
+
+                    //Before search is performed, display instruction text
                     if(searchKeyword==null && index==0){
                         return(
                             <div className='resultContainer' key={index}>
                                 <div className='BlankSearch'>
-                                    No meals to show. Try selecting a meal type and searching your favorite dish. Then click <b>"search"!</b>
+                                    Try searching by <b>meal type</b> or <b>keyword</b> above to display some tasty dishes!
                                 </div>
                             </div>
                         )
                     } else if(searchKeyword==null && index>0){
-
-                    } else {
+                    } 
+                    
+                    //Once search is performed, display results in list. Add buttons for ingredients and recipe.
+                    else {
                         return(
                             <div className='resultContainer' key={index}>
                                 <div className='imageContainer'>
                                 <img 
-                                    src={e.recipe.image}
+                                    src={e.recipe.images.THUMBNAIL.url}
                                     onError={({currentTarget})=>{
                                         currentTarget.onerror = null;
                                         console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
@@ -62,9 +69,18 @@ const SearchResults = () => {
                                 <div className='textContainer'>
                                     <h2 className='label'>{e.recipe.label}</h2>
                                     <div className='buttonContainer'>
+                                        {/* Assign info panel with selected meal's information */}
                                         <span className='greenButton' onClick={()=>{
-                                            openIngredientPanel(e)
-                                            setMealIngredients(e.recipe.ingredients)
+                                            openIngredientPanel();
+                                            setMealImage(e.recipe.image);
+                                            setMealLabel(e.recipe.label);
+                                            let newObj = []
+                                            e.recipe.ingredients.map((item) =>{
+                                                return newObj.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                                            }
+                                            
+                                            )
+                                            setMealIngredients(newObj);
                                             }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
@@ -81,7 +97,10 @@ const SearchResults = () => {
             )
         })
         .catch(console.error)
-    },[searchKeyword, mealType])
+    },
+
+    //Monitor change in searchKeyword and mealType
+    [searchKeyword, mealType])
 
     return (
         <div className='SearchResults'>

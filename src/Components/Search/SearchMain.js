@@ -44,6 +44,7 @@ const SearchMain = () => {
                             </svg>
                         </div>
                         <SearchSelection />
+                            <hr className='SearchResultsContainerTop'></hr>
                         <div className='SearchResultsContainer'>
                             <SearchResults />
                         </div>

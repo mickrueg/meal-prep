@@ -25,11 +25,15 @@
     justify-content: space-between;
 }
 
+.SearchResultsContainerTop{
+    margin:0;
+    margin-top: 20px
+}
+
 .SearchResultsContainer{
     height: 100%;
     width: 100%;
-    margin-top: 40px;
-
+    padding-top: 20px;
     overflow-y: scroll;
 
 }
