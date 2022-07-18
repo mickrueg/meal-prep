@@ -15,12 +15,12 @@
 }
 
 .SearchMain{
-    margin-top: 10px;
     width: 90%;
     height: auto;
 }
 
 .SearchHeader{
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
 }

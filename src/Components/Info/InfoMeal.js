@@ -15,7 +15,6 @@ const InfoMeal = () => {
         = useContext(InfoContext);
 
     useEffect(()=>{
-        console.log(mealIngredients)
         if(mealIngredients.length<1){
             setDisplayMeal(
                 <div>

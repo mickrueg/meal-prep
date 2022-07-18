@@ -23,7 +23,6 @@ const InfoMain = () => {
             onStop={mobileSnap}
             axis='y'
             handle='#handle'
-            className='InfoDraggable'
             >
             <div className={infoState} ref={nodeRef}>
                 <div className='InfoMain'>

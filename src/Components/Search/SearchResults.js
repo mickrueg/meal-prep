@@ -15,7 +15,10 @@ const SearchResults = () => {
         setMealRecipe,
         searchKeyword,
         mealType,
-        setSearchMain } 
+        setSearchMain,
+        mainImages, setMainImages,
+        mainRecipes, setMainRecipes,
+        mainIngredients, setMainIngredients } 
         = useContext(InfoContext);
     
     //Open & close Ingredient Panel Function
@@ -23,6 +26,14 @@ const SearchResults = () => {
         setInfoState('InfoContainer Up');
         setSearchMain(`SearchMain mid`);
     }
+
+    //Add to Main
+    const addToMain = (selected) =>{
+        // setMainImages([...mainImages, selected.recipe.images.THUMBNAIL.url]);
+        // setMainRecipes([...mainRecipes, selected.recipe.url]);
+        // setMainIngredients([...mainIngredients, selected.recipe.ingredients]);
+    }
+
 
     //Link to API
     const url= `https://api.edamam.com/api/recipes/v2?type=public&q=${searchKeyword}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
@@ -77,17 +88,25 @@ const SearchResults = () => {
                                             setMealImage(e.recipe.image);
                                             setMealLabel(e.recipe.label);
                                             setMealRecipe(e.recipe.url);
-                                            let newObj = []
+                                            let ingredientsArray = []
                                             e.recipe.ingredients.map((item) =>{
-                                                return newObj.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                                                return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})
                                             }
                                             
                                             )
-                                            setMealIngredients(newObj);
+                                            setMealIngredients(ingredientsArray);
                                             }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
-                                        <span className='greenButton'>+ Meal Prep</span>
+                                        <span className='greenButton' onClick={()=>{
+                                            let ingredientsArrayMain = []
+                                            e.recipe.ingredients.forEach((item) =>{
+                                                return ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                                            }
+                                            )
+                                        
+                                            setMainIngredients(ingredientsArrayMain);
+                                        }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>
                                 </div>
