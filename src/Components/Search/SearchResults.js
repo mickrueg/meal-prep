@@ -11,17 +11,17 @@ const SearchResults = () => {
     const { setInfoState,
         setMealImage,
         setMealLabel,
-        mealIngredients, setMealIngredients,
-        setMealIngrQuantities,
-        mealSelected,setMealSelected,
-        searchKeyword, setSearchKeyword,
-        mealType, setMealType } 
+        setMealIngredients,
+        setMealRecipe,
+        searchKeyword,
+        mealType,
+        setSearchMain } 
         = useContext(InfoContext);
     
     //Open & close Ingredient Panel Function
     const openIngredientPanel = () =>{
         setInfoState('InfoContainer Up');
-
+        setSearchMain(`SearchMain mid`);
     }
 
     //Link to API
@@ -56,15 +56,17 @@ const SearchResults = () => {
                         return(
                             <div className='resultContainer' key={index}>
                                 <div className='imageContainer'>
-                                <img 
-                                    src={e.recipe.images.THUMBNAIL.url}
-                                    onError={({currentTarget})=>{
-                                        currentTarget.onerror = null;
-                                        console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
-                                        currentTarget.src=imageNA;
-                                    }}
-                                    alt='pizza' 
-                                    className='resultImage'/>
+                                <a href={e.recipe.url} target="_blank" rel='noreferrer' className='RecipeLink'>
+                                    <img 
+                                        src={e.recipe.images.THUMBNAIL.url}
+                                        onError={({currentTarget})=>{
+                                            currentTarget.onerror = null;
+                                            console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
+                                            currentTarget.src=imageNA;
+                                        }}
+                                        alt='pizza' 
+                                        className='resultImage'/>
+                                </a>
                                 </div>
                                 <div className='textContainer'>
                                     <h2 className='label'>{e.recipe.label}</h2>
@@ -74,6 +76,7 @@ const SearchResults = () => {
                                             openIngredientPanel();
                                             setMealImage(e.recipe.image);
                                             setMealLabel(e.recipe.label);
+                                            setMealRecipe(e.recipe.url);
                                             let newObj = []
                                             e.recipe.ingredients.map((item) =>{
                                                 return newObj.push({food: item.food, quantity: item.quantity, measure: item.measure})
@@ -84,9 +87,7 @@ const SearchResults = () => {
                                             }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
-                                        <a href={e.recipe.url} target="_blank" rel='noreferrer' className='RecipeLink'>
-                                            <span className='greenButton'>Recipe</span>
-                                        </a>
+                                        <span className='greenButton'>+ Meal Prep</span>
                                     </div>
                                     <div></div>
                                 </div>

@@ -50,9 +50,16 @@
     .SearchMain{
         margin-left: 4.5%;
         padding-right: 2%;
-        width: 42%;
+        width: 90%;
         margin-top: 30px;
+        transition: 200ms ease;
     }
+    
+    .SearchMain.mid{
+        width: 42%;
+        transition: 200ms ease;
+    }
+
     .arrow{
         display: none;
     }

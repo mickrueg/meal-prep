@@ -13,7 +13,7 @@ const SearchMain = () => {
     const [searchContainer, setSearchContainer] = useState('SearchContainer');
 
     const [arrow, setArrow] = useState(upArrow);
-    const {setInfoState} = useContext(InfoContext);
+    const {setInfoState, searchMain} = useContext(InfoContext);
 
     const mobileSnap = () =>{
         if(searchContainer==='SearchContainer'){
@@ -36,7 +36,7 @@ const SearchMain = () => {
                 handle='#handle'
                 >
                 <div className={searchContainer} ref={nodeRef}>
-                    <div className='SearchMain'>
+                    <div className={searchMain}>
                         <div className='SearchHeader' id="handle">
                             <h1 onClick={mobileSnap}>Search</h1>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="arrow" viewBox="0 0 16 16">

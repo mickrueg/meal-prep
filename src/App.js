@@ -11,25 +11,32 @@ function App() {
   const [mealImage, setMealImage] = useState();
   const [mealLabel, setMealLabel] = useState();
   const [mealIngredients, setMealIngredients] = useState([]);
-  const [mealIngrQuantities, setMealIngrQuantities] = useState();
-  const [mealSelected, setMealSelected] = useState();
+  const [mealRecipe, setMealRecipe] = useState();
   const [searchKeyword, setSearchKeyword] = useState();
   const [mealType, setMealType] = useState('all');
+  const [searchMain, setSearchMain] = useState('SearchMain');
+  const [mainImages, setMainImages] = useState([]);
+  const [mainRecipes, setMainRecipes] = useState([]);
+  const [mainIngredients, setMainIngredients] = useState([]);
+
 
   return (
     <div className="App">
         <Background />
-        <MealPrepMain />
         <InfoContext.Provider value={
           {infoState, setInfoState,
           mealImage, setMealImage,
           mealLabel, setMealLabel,
           mealIngredients, setMealIngredients,
-          mealIngrQuantities,setMealIngrQuantities,
-          mealSelected, setMealSelected,
+          mealRecipe, setMealRecipe,
           searchKeyword, setSearchKeyword,
-          mealType, setMealType}
+          mealType, setMealType,
+          searchMain, setSearchMain,
+          mainImages, setMainImages,
+          mainRecipes, setMainRecipes,
+          mainIngredients, setMainIngredients}
         }>
+          <MealPrepMain />
           <SearchMain/>
           <InfoMain />
         </InfoContext.Provider>
