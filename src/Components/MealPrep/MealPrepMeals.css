@@ -1,3 +1,12 @@
 .MealPrepMeals{
+    height: 98%;
     margin: 5px;
+    overflow-y: scroll;
+    margin-top: 0;
+    
+}
+
+.MealPrepMealsContainer{
+    padding-bottom: 200px;
+    padding-top: 15px;
 }

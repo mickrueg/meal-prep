@@ -1,5 +1,4 @@
 import React from 'react';
-import MealPrepList from './MealPrepList';
 import './MealPrepMain.css';
 import MealPrepMeals from './MealPrepMeals';
 import EdamamBadge from '../../assets/Edamam_Badge.svg'
@@ -14,8 +13,8 @@ const MealPrepMain = () => {
                         <img className="Edamam" src={EdamamBadge} alt='Powered by Edamam' />
                     </a>
                 </div>
+                <hr></hr>
                 <MealPrepMeals />
-                <MealPrepList />
             </div>
         </div>
     );

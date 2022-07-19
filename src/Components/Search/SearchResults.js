@@ -101,11 +101,19 @@ const SearchResults = () => {
                                         <span className='greenButton' onClick={()=>{
                                             let ingredientsArrayMain = []
                                             e.recipe.ingredients.forEach((item) =>{
-                                                return ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                                                ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
                                             }
                                             )
-                                        
-                                            setMainIngredients(ingredientsArrayMain);
+                                            setMainIngredients(current=>{return [...current,...ingredientsArrayMain]});
+                                            let ingredientsArray = []
+                                            e.recipe.ingredients.map((item) =>{
+                                                return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                                            }
+                                            
+                                            )
+                                            setMainRecipes(current=>{
+                                                return [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
+                                            })
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>

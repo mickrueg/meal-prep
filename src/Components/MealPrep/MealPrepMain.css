@@ -7,20 +7,26 @@
     transition: 500ms ease;
 }
 
-.MealPrepHeader{
-    display: flex;
-    justify-content: space-between;
-}
-
 .MealPrepMain{
     width: 90%;
     height: auto;
     margin-top: 20px;
 }
 
+.MealPrepMain hr{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.MealPrepHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 img.Edamam{
     height: 30px;
-    margin-right: -50px;
+    margin-right: -38px;
     margin-top: -10px;
     margin-bottom: -10px;
     z-index: -1;
