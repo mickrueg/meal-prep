@@ -114,19 +114,6 @@ const SearchResults = () => {
                         }
 
                         //When new recipes are added, check for duplicate images
-                        // function uniqueRecipes(recipeList){
-                        //     const uniqueLabels = [];
-                        //     const unique = recipeList.filter(element => {
-                        //       const isDuplicate = uniqueLabels.includes(element.label);
-                        //       if (!isDuplicate) {
-                        //         uniqueLabels.push(element.label);
-                        //         return true;
-                        //       }
-                        //       return false;
-                        //     });
-                        //     console.log(unique);
-                        //     return unique;
-                        // }
                         function uniqueRecipes(previousRecipes, newRecipe){
                             let next = true;
                                 while (next){
@@ -142,6 +129,21 @@ const SearchResults = () => {
                                     }
                                 }
                             return previousRecipes;
+                        }
+
+                        function addMealPrep(){
+                            const ingredientsArrayMain = [];
+                            e.recipe.ingredients.forEach((item) =>{
+                                ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                            })
+                            const sortedAndFiltered = sortAndFilter(mainIngredients, ingredientsArrayMain);
+                            console.log(sortedAndFiltered)
+                            setMainIngredients(()=>[...sortedAndFiltered]);
+                            
+                            const newRecipe = {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image};
+                            const updatedRecipeList = uniqueRecipes(mainRecipes, newRecipe);
+                            console.log(updatedRecipeList)
+                            setMainRecipes(()=>[...updatedRecipeList])
                         }
 
 
@@ -175,18 +177,7 @@ const SearchResults = () => {
                                     </div>
                                     <div className='buttonContainer'>
                                         <span className='greenButton' onClick={()=>{
-                                            const ingredientsArrayMain = [];
-                                            e.recipe.ingredients.forEach((item) =>{
-                                                ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
-                                            })
-                                            const sortedAndFiltered = sortAndFilter(mainIngredients, ingredientsArrayMain);
-                                            console.log(sortedAndFiltered)
-                                            setMainIngredients(()=>[...sortedAndFiltered]);
-                                            
-                                            const newRecipe = {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image};
-                                            const updatedRecipeList = uniqueRecipes(mainRecipes, newRecipe);
-                                            console.log(updatedRecipeList)
-                                            setMainRecipes(()=>[...updatedRecipeList])
+                                            addMealPrep();
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>

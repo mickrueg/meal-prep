@@ -63,13 +63,14 @@
 }
 
 .singleIngredient{
-    margin: 5px;
+    margin-bottom: 15px;
     display: flex;
     align-content: center;
 }
 
 .singleIngredientX{
-    margin-right: 5px;
+    margin: 0;
+    margin-right: 10px;
 }
 
 .InfoMeal hr{
