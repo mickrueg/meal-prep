@@ -81,7 +81,6 @@ const MealPrepMeals = () => {
                 </li>)
             })}
         </ul>)
-        // console.log(mainIngredients[0]);
     }, [mainIngredients])
 
     return (

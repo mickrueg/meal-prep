@@ -114,28 +114,37 @@ const SearchResults = () => {
                         }
 
                         //When new recipes are added, check for duplicate images
-                        function recipeSort(previousRecipes, newRecipe){
-                            // [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
-                            let newArray = [];
-                            for(let i=0; i<previousRecipes.length; i++){
-                                if(previousRecipes.length==0){
-                                    newArray.push(newRecipe);
+                        // function uniqueRecipes(recipeList){
+                        //     const uniqueLabels = [];
+                        //     const unique = recipeList.filter(element => {
+                        //       const isDuplicate = uniqueLabels.includes(element.label);
+                        //       if (!isDuplicate) {
+                        //         uniqueLabels.push(element.label);
+                        //         return true;
+                        //       }
+                        //       return false;
+                        //     });
+                        //     console.log(unique);
+                        //     return unique;
+                        // }
+                        function uniqueRecipes(previousRecipes, newRecipe){
+                            let next = true;
+                                while (next){
+                                    for(let j=0; j<previousRecipes.length; j++){
+                                        if(previousRecipes.length>0 && 
+                                            newRecipe.label==previousRecipes[j].label){
+                                                next=false;
+                                            }
+                                    }
+                                    if(next){
+                                        previousRecipes.push(newRecipe);
+                                        next=false;
+                                    }
                                 }
-                            }
-                            // let newArray = [];
-                            // for(let i=0; i<previousRecipes.length; i++){
-                            //     newArray.push(newRecipe)
-                            //     if(previousRecipes.length>0 && 
-                            //         newRecipe.label==previousRecipes[i].label){
-                            //             return null;
-                            //         } else {
-                            //             console.log(newRecipe)
-                            //             newArray.push(newRecipe);
-                            //         }
-                            // }
-                            // console.log(newArray)
-                            return newArray;
+                            return previousRecipes;
                         }
+
+
 
                         return(
                             <div className='resultContainer' key={index}>
@@ -171,30 +180,13 @@ const SearchResults = () => {
                                                 ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
                                             })
                                             const sortedAndFiltered = sortAndFilter(mainIngredients, ingredientsArrayMain);
+                                            console.log(sortedAndFiltered)
                                             setMainIngredients(()=>[...sortedAndFiltered]);
+                                            
                                             const newRecipe = {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image};
-                                            // const sortedRecipes = recipeSort(mainRecipes, newRecipe)
-                                            function checkForRecipe(){
-                                                let next = true;
-                                                let newArray = [];
-                                                for(let i=0; i<mainRecipes.length; i++){
-                                                    if(newRecipe.label==mainRecipes[i].label){
-                                                        next = false;
-                                                    }else{
-                                                        newArray.push(mainRecipes[i])
-                                                    }
-                                                }
-                                                if(next){
-                                                    newArray.push(newRecipe);
-                                                }
-                                                return newArray;
-                                            }
-                                            const recipeCheck = checkForRecipe();
-                                            setMainRecipes((current)=>[...current, ...recipeCheck])
-                                            // setMainRecipes(current=>{
-                                            //     return [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
-                                            // })
-                                            // setMainRecipes(()=>[...sortedRecipes]);
+                                            const updatedRecipeList = uniqueRecipes(mainRecipes, newRecipe);
+                                            console.log(updatedRecipeList)
+                                            setMainRecipes(()=>[...updatedRecipeList])
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>
