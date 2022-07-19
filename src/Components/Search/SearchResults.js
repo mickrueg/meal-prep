@@ -66,12 +66,83 @@ const SearchResults = () => {
                     
                     //Once search is performed, display results in list. Add buttons for ingredients and recipe.
                     else {
+
+                        //Set Variables
+                        const ingredientsArray = []
+                        e.recipe.ingredients.forEach((item) =>{
+                            return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})
+                        })
+                        const recipeLink = e.recipe.url;
+                        const recipeImageThumbnail = e.recipe.images.THUMBNAIL.url;
+                        const recipeImage = e.recipe.image;
+                        const recipeLabel = e.recipe.label;
+
+                        //When new ingredients are added to main, sort ingredients and add quanities together for any identical ingredients
+                        function sortAndFilter(previousIngredients, newIngredients){
+                            let next = true;
+                            for (let i=0; i<newIngredients.length; i++){
+                                next = true;
+                                while (next){
+                                    for(let j=0; j<previousIngredients.length; j++){
+                                        if(previousIngredients.length>0 && 
+                                            newIngredients[i].food==previousIngredients[j].food &&
+                                            newIngredients[i].measure==previousIngredients[j].measure
+                                            ){
+                                                previousIngredients[j].quantity += newIngredients[i].quantity;
+                                                next=false;
+                                            }
+                                    }
+                                    if(next){
+                                        previousIngredients.push(newIngredients[i]);
+                                        next=false;
+                                    }
+                                }
+                            }
+
+                            previousIngredients.sort((a, b)=>{
+                                let first = a.food.toLowerCase(), second = b.food.toLowerCase();
+                                if(first<second){
+                                    return -1;
+                                }
+                                if(first>second){
+                                    return 1;
+                                }
+                                return 0;
+                            })
+
+                            return previousIngredients;
+                        }
+
+                        //When new recipes are added, check for duplicate images
+                        function recipeSort(previousRecipes, newRecipe){
+                            // [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
+                            let newArray = [];
+                            for(let i=0; i<previousRecipes.length; i++){
+                                if(previousRecipes.length==0){
+                                    newArray.push(newRecipe);
+                                }
+                            }
+                            // let newArray = [];
+                            // for(let i=0; i<previousRecipes.length; i++){
+                            //     newArray.push(newRecipe)
+                            //     if(previousRecipes.length>0 && 
+                            //         newRecipe.label==previousRecipes[i].label){
+                            //             return null;
+                            //         } else {
+                            //             console.log(newRecipe)
+                            //             newArray.push(newRecipe);
+                            //         }
+                            // }
+                            // console.log(newArray)
+                            return newArray;
+                        }
+
                         return(
                             <div className='resultContainer' key={index}>
                                 <div className='imageContainer'>
-                                <a href={e.recipe.url} target="_blank" rel='noreferrer' className='RecipeLink'>
+                                <a href={recipeLink} target="_blank" rel='noreferrer' className='RecipeLink'>
                                     <img 
-                                        src={e.recipe.images.THUMBNAIL.url}
+                                        src={recipeImageThumbnail}
                                         onError={({currentTarget})=>{
                                             currentTarget.onerror = null;
                                             console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
@@ -82,64 +153,48 @@ const SearchResults = () => {
                                 </a>
                                 </div>
                                 <div className='textContainer'>
-                                    <h2 className='label'>{e.recipe.label}</h2>
+                                    <h2 className='label'>{recipeLabel}</h2>
                                     <div className='buttonContainer'>
                                         {/* Assign info panel with selected meal's information */}
                                         <span className='greenButton' onClick={()=>{
                                             openIngredientPanel();
-                                            setMealImage(e.recipe.image);
-                                            setMealLabel(e.recipe.label);
-                                            setMealRecipe(e.recipe.url);
-                                            let ingredientsArray = []
-                                            e.recipe.ingredients.map((item) =>{
-                                                return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})
-                                            }
-                                            
-                                            )
+                                            setMealImage(recipeImage);
+                                            setMealLabel(recipeLabel);
+                                            setMealRecipe(recipeLink);
                                             setMealIngredients(ingredientsArray);
                                             }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
                                         <span className='greenButton' onClick={()=>{
-                                            let ingredientsArrayMain = []
+                                            const ingredientsArrayMain = [];
                                             e.recipe.ingredients.forEach((item) =>{
                                                 ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
-                                            }
-                                            )
-
-                                            //Series of next items sorts and filters data to single ingredients
-                                            let sortedAndFiltered = mainIngredients;
-                                            let next = true;
-                                            for (let i=0; i<ingredientsArrayMain.length; i++){
-                                                next = true;
-                                                while (next){
-                                                    for(let j=0; j<sortedAndFiltered.length; j++){
-                                                        if(sortedAndFiltered.length>0 && 
-                                                            ingredientsArrayMain[i].food==sortedAndFiltered[j].food &&
-                                                            ingredientsArrayMain[i].measure==sortedAndFiltered[j].measure
-                                                            ){
-                                                                sortedAndFiltered[j].quantity += ingredientsArrayMain[i].quantity;
-                                                                next=false;
-                                                            }
-                                                    }
-                                                    if(next){
-                                                        sortedAndFiltered.push(ingredientsArrayMain[i]);
-                                                        next=false;
+                                            })
+                                            const sortedAndFiltered = sortAndFilter(mainIngredients, ingredientsArrayMain);
+                                            setMainIngredients(()=>[...sortedAndFiltered]);
+                                            const newRecipe = {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image};
+                                            // const sortedRecipes = recipeSort(mainRecipes, newRecipe)
+                                            function checkForRecipe(){
+                                                let next = true;
+                                                let newArray = [];
+                                                for(let i=0; i<mainRecipes.length; i++){
+                                                    if(newRecipe.label==mainRecipes[i].label){
+                                                        next = false;
+                                                    }else{
+                                                        newArray.push(mainRecipes[i])
                                                     }
                                                 }
+                                                if(next){
+                                                    newArray.push(newRecipe);
+                                                }
+                                                return newArray;
                                             }
-                                            console.log(sortedAndFiltered)
-                                            setMainIngredients(sortedAndFiltered);
-                                            // setMainIngredients((current)=>{return [...current,...ingredientsArrayMain]});
-                                            let ingredientsArray = []
-                                            e.recipe.ingredients.map((item) =>{
-                                                return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})
-                                            }
-                                            
-                                            )
-                                            setMainRecipes(current=>{
-                                                return [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
-                                            })
+                                            const recipeCheck = checkForRecipe();
+                                            setMainRecipes((current)=>[...current, ...recipeCheck])
+                                            // setMainRecipes(current=>{
+                                            //     return [...current, {label: e.recipe.label, recipe: e.recipe.url, thumbnail: e.recipe.images.THUMBNAIL.url, ingredients: ingredientsArray, image: e.recipe.image}]
+                                            // })
+                                            // setMainRecipes(()=>[...sortedRecipes]);
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>
