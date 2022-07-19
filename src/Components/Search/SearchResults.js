@@ -18,7 +18,8 @@ const SearchResults = () => {
         setSearchMain,
         mainImages, setMainImages,
         mainRecipes, setMainRecipes,
-        mainIngredients, setMainIngredients } 
+        mainIngredients, setMainIngredients, 
+        mainIngredientsOrganized} 
         = useContext(InfoContext);
     
     //Open & close Ingredient Panel Function
@@ -60,6 +61,7 @@ const SearchResults = () => {
                             </div>
                         )
                     } else if(searchKeyword==null && index>0){
+                        return null;
                     } 
                     
                     //Once search is performed, display results in list. Add buttons for ingredients and recipe.
@@ -104,7 +106,31 @@ const SearchResults = () => {
                                                 ingredientsArrayMain.push({food: item.food, quantity: item.quantity, measure: item.measure})
                                             }
                                             )
-                                            setMainIngredients(current=>{return [...current,...ingredientsArrayMain]});
+
+                                            //Series of next items sorts and filters data to single ingredients
+                                            let sortedAndFiltered = mainIngredients;
+                                            let next = true;
+                                            for (let i=0; i<ingredientsArrayMain.length; i++){
+                                                next = true;
+                                                while (next){
+                                                    for(let j=0; j<sortedAndFiltered.length; j++){
+                                                        if(sortedAndFiltered.length>0 && 
+                                                            ingredientsArrayMain[i].food==sortedAndFiltered[j].food &&
+                                                            ingredientsArrayMain[i].measure==sortedAndFiltered[j].measure
+                                                            ){
+                                                                sortedAndFiltered[j].quantity += ingredientsArrayMain[i].quantity;
+                                                                next=false;
+                                                            }
+                                                    }
+                                                    if(next){
+                                                        sortedAndFiltered.push(ingredientsArrayMain[i]);
+                                                        next=false;
+                                                    }
+                                                }
+                                            }
+                                            console.log(sortedAndFiltered)
+                                            setMainIngredients(sortedAndFiltered);
+                                            // setMainIngredients((current)=>{return [...current,...ingredientsArrayMain]});
                                             let ingredientsArray = []
                                             e.recipe.ingredients.map((item) =>{
                                                 return ingredientsArray.push({food: item.food, quantity: item.quantity, measure: item.measure})

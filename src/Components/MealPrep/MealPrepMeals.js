@@ -17,7 +17,8 @@ const MealPrepMeals = () => {
         setInfoState, setSearchMain,
         setMealImage,setMealLabel,
         setMealRecipe,
-        setMealIngredients} = useContext(InfoContext);
+        setMealIngredients,
+        mainIngredientsOrganized, setMainIngredientsOrganized} = useContext(InfoContext);
 
     const openIngredientPanel = () =>{
         setInfoState('InfoContainer Up');
@@ -28,7 +29,7 @@ const MealPrepMeals = () => {
         setDisplayMainRecipes(<div>
             {mainRecipes.map((e, index)=>{
                 return (
-                        <div className='resultContainer' key={index}>
+                        <div className='resultContainer main' key={index}>
                             <div className='imageContainer'>
                             <a href={e.recipe} target="_blank" rel='noreferrer' className='RecipeLink'>
                                 <img 
@@ -70,24 +71,25 @@ const MealPrepMeals = () => {
 
     useEffect(()=>{
         setDisplayMainIngredients(<ul className='ingredientList'>
+
             {mainIngredients.map((e,index)=>{
                 return(<li key={index} className='singleIngredient'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="singleIngredientX bi bi-x-square" viewBox="0 0 16 16">
                         <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                     </svg> 
-                    {capitalize(e.food)}
+                    {capitalize(e.food)} - {e.quantity} {(e.measure=="<unit>" ? null : e.measure)}
                 </li>)
             })}
         </ul>)
         // console.log(mainIngredients[0]);
-    },[mainRecipes])
+    }, [mainIngredients])
 
     return (
         <div className='MealPrepMeals'>
             <div className='MealPrepMealsContainer'>
-            {(mainRecipes.length<1?<div><b>DISHES</b></div>:<div><b>DISHES</b>{displayMainRecipes}</div>)}
-            <b>INGREDIENTS</b>
-            {displayMainIngredients}
+            {(mainRecipes.length<1?<div><h3>MEALS TO PREP</h3>Search for a tasty meal and click "+ Meal Prep" to add here!</div>:<div><h3>MEALS TO PREP</h3>{displayMainRecipes}</div>)}
+            <br></br>
+            {(mainIngredients.length<1?<div><h3>GROCERY LIST</h3>Once your meals are selected, all the ingredients will display here :)</div>:<div><h3>GROCERY LIST</h3>{displayMainIngredients}</div>)}
             </div>
         </div>
     );

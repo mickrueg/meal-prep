@@ -18,6 +18,7 @@ function App() {
   const [mainImages, setMainImages] = useState([]);
   const [mainRecipes, setMainRecipes] = useState([]);
   const [mainIngredients, setMainIngredients] = useState([]);
+  const [mainIngredientsOrganized, setMainIngredientsOrganized] = useState([]);
 
 
   return (
@@ -34,7 +35,8 @@ function App() {
           searchMain, setSearchMain,
           mainImages, setMainImages,
           mainRecipes, setMainRecipes,
-          mainIngredients, setMainIngredients}
+          mainIngredients, setMainIngredients,
+          mainIngredientsOrganized, setMainIngredientsOrganized}
         }>
           <MealPrepMain />
           <SearchMain/>
