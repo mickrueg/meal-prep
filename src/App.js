@@ -8,6 +8,7 @@ import { InfoContext } from './Components/Info/InfoContext';
 
 function App() {
   const [infoState, setInfoState] = useState('InfoContainer');
+  const [searchContainerState, setSearchContainerState] = useState('SearchContainer');
   const [mealImage, setMealImage] = useState();
   const [mealLabel, setMealLabel] = useState();
   const [mealIngredients, setMealIngredients] = useState([]);
@@ -26,6 +27,7 @@ function App() {
         <Background />
         <InfoContext.Provider value={
           {infoState, setInfoState,
+          searchContainerState, setSearchContainerState,
           mealImage, setMealImage,
           mealLabel, setMealLabel,
           mealIngredients, setMealIngredients,

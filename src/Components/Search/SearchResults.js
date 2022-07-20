@@ -9,6 +9,7 @@ const SearchResults = () => {
     //States
     const [displayResults, setDisplayResults] = useState()
     const { setInfoState,
+        setSearchContainerState,
         setMealImage,
         setMealLabel,
         setMealIngredients,
@@ -16,10 +17,9 @@ const SearchResults = () => {
         searchKeyword,
         mealType,
         setSearchMain,
-        mainImages, setMainImages,
         mainRecipes, setMainRecipes,
         mainIngredients, setMainIngredients, 
-        mainIngredientsOrganized} 
+        } 
         = useContext(InfoContext);
     
     //Open & close Ingredient Panel Function
@@ -144,6 +144,8 @@ const SearchResults = () => {
                             const updatedRecipeList = uniqueRecipes(mainRecipes, newRecipe);
                             console.log(updatedRecipeList)
                             setMainRecipes(()=>[...updatedRecipeList])
+
+                            setSearchContainerState('SearchContainer')
                         }
 
 

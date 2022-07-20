@@ -1,9 +1,11 @@
-import React from 'react';
+
 import './MealPrepMain.css';
 import MealPrepMeals from './MealPrepMeals';
 import EdamamBadge from '../../assets/Edamam_Badge.svg'
 
+
 const MealPrepMain = () => {
+
     return (
         <div className='MealPrepContainer'>
             <div className='MealPrepMain'>

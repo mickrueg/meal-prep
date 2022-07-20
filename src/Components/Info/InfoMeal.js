@@ -14,7 +14,9 @@ const InfoMeal = () => {
         mealIngredients,
         mealRecipe,
         mainIngredients, setMainIngredients,
-        mainRecipes, setMainRecipes} 
+        mainRecipes, setMainRecipes,
+        setSearchContainerState,
+        setInfoState} 
         = useContext(InfoContext);
     const ingredientsArray = []
     mealIngredients.forEach((item) =>{
@@ -117,6 +119,9 @@ const InfoMeal = () => {
         const updatedRecipeList = uniqueRecipes(mainRecipes, newRecipe);
         console.log(updatedRecipeList)
         setMainRecipes(()=>[...updatedRecipeList])
+
+        setSearchContainerState('SearchContainer');
+        setInfoState('InfoContainer');
     }
 
     return (

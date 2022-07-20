@@ -25,6 +25,7 @@ const MealPrepMeals = () => {
         setSearchMain(`SearchMain mid`);
     }
 
+
     useEffect(()=>{
         setDisplayMainRecipes(<div>
             {mainRecipes.map((e, index)=>{
@@ -39,7 +40,7 @@ const MealPrepMeals = () => {
                                         console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
                                         currentTarget.src=imageNA;
                                     }}
-                                    alt='pizza' 
+                                    alt={e.label} 
                                     className='resultImage'/>
                             </a>
                             </div>
@@ -81,12 +82,27 @@ const MealPrepMeals = () => {
         </ul>)
     }, [mainIngredients])
 
+    function exportRecipes(){
+        const recipes = mainRecipes.map((e)=>{
+            return `${e.label}\n${e.recipe}\n`
+        })
+        const ingredients = mainIngredients.map((e)=>{
+            return `${capitalize(e.food)} - ${Math.round(e.quantity*100)/100} ${(e.measure=="<unit>" ? null : e.measure)}\n`
+        })
+
+        navigator.clipboard.writeText(
+            `RECIPES\n\n${recipes.join('')}\n\n\nGROCERY LIST\n\n${ingredients.join('')}`
+        )
+    }
+
     return (
         <div className='MealPrepMeals'>
             <div className='MealPrepMealsContainer'>
-            {(mainRecipes.length<1?<div><h3>MEALS TO PREP</h3>Search for a tasty meal and click "+ Meal Prep" to add here!</div>:<div><h3>MEALS TO PREP</h3>{displayMainRecipes}</div>)}
+            {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal and click <b>"+ Meal Prep"</b> to add here!</div>:<div><h3>RECIPES</h3>{displayMainRecipes}</div>)}
             <br></br>
             {(mainIngredients.length<1?<div><h3>GROCERY LIST</h3>Once your meals are selected, all the ingredients will display here :)</div>:<div><h3>GROCERY LIST</h3>{displayMainIngredients}</div>)}
+            <br></br>
+            {(mainRecipes.length<1? null : <div><span className='greenButton export' onClick={()=>{exportRecipes()}}>export</span><span className="exportInstructions"><br></br><br></br>*clicking export will save the selected recipes and ingredients above to your clipboard. You can then "right click" &gt; "paste" into your notes to keep.</span></div>)}
             </div>
         </div>
     );

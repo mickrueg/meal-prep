@@ -17,3 +17,17 @@
     margin-bottom: 10px;
     /* font-size: large; */
 }
+
+.export{
+    margin: 0;
+    padding-top: 3px;
+}
+
+.exportInstructions{
+    font-style: italic;
+    font-size: small;
+}
+
+.singleIngredientX{
+    font-size: x-large;
+}

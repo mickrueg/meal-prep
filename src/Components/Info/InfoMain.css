@@ -8,12 +8,13 @@
     justify-content: center;
     background-color: white;
     border-radius: 30px;
-    transition: 500ms ease;
+    transition: 250ms ease;
     z-index: 2;
 }
 
 .InfoContainer.Up{
     top: 100px;
+    transition: 250ms ease;
     /* display: none; */
 }
 

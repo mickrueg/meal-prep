@@ -10,17 +10,16 @@ const downArrow='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3
 
 const SearchMain = () => {
     const nodeRef = React.useRef(null);
-    const [searchContainer, setSearchContainer] = useState('SearchContainer');
 
     const [arrow, setArrow] = useState(upArrow);
-    const {setInfoState, searchMain} = useContext(InfoContext);
+    const {setInfoState, searchMain, searchContainerState, setSearchContainerState} = useContext(InfoContext);
 
     const mobileSnap = () =>{
-        if(searchContainer==='SearchContainer'){
-            setSearchContainer('SearchContainer Up');
+        if(searchContainerState==='SearchContainer'){
+            setSearchContainerState('SearchContainer Up');
             setArrow(downArrow);
         } else {
-            setSearchContainer('SearchContainer');
+            setSearchContainerState('SearchContainer');
             setInfoState('InfoContainer');
             setArrow(upArrow);
         }
@@ -35,7 +34,7 @@ const SearchMain = () => {
                 axis='y'
                 handle='#handle'
                 >
-                <div className={searchContainer} ref={nodeRef}>
+                <div className={searchContainerState} ref={nodeRef}>
                     <div className={searchMain}>
                         <div className='SearchHeader' id="handle">
                             <h1 onClick={mobileSnap}>Search</h1>

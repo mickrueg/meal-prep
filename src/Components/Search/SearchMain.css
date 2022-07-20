@@ -7,11 +7,12 @@
     top: calc(100% - 48px);
     /* top: 55px; */
     background-color: #d1e0b4;
-    transition: 300ms ease;
+    transition: 500ms ease;
 }
 
 .SearchContainer.Up{
     top: 55px;
+    transition: 500ms ease;
 }
 
 .SearchMain{
@@ -46,12 +47,13 @@
         transition: 200ms ease;
         justify-content: left;
         z-index: 2;
+        
     }
     .SearchMain{
         margin-left: 4.5%;
         padding-right: 2%;
         width: 90%;
-        margin-top: 30px;
+        margin-top: 20px;
         transition: 200ms ease;
     }
     
