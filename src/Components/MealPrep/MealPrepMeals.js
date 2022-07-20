@@ -98,11 +98,12 @@ const MealPrepMeals = () => {
     return (
         <div className='MealPrepMeals'>
             <div className='MealPrepMealsContainer'>
-            {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal and click <b>"+ Meal Prep"</b> to add here!</div>:<div><h3>RECIPES</h3>{displayMainRecipes}</div>)}
+            {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal then click <b>"+ Meal Prep"</b> to add here!</div>:<div><h3>RECIPES</h3>{displayMainRecipes}</div>)}
             <br></br>
             {(mainIngredients.length<1?<div><h3>GROCERY LIST</h3>Once your meals are selected, all the ingredients will display here :)</div>:<div><h3>GROCERY LIST</h3>{displayMainIngredients}</div>)}
             <br></br>
-            {(mainRecipes.length<1? null : <div><span className='greenButton export' onClick={()=>{exportRecipes()}}>export</span><span className="exportInstructions"><br></br><br></br>*clicking export will save the selected recipes and ingredients above to your clipboard. You can then "right click" &gt; "paste" into your notes to keep.</span></div>)}
+            {(mainRecipes.length<1? null : <div><hr></hr><br></br><b>EXPORT <span className='greenButton export' onClick={()=>{exportRecipes()}}>save to clipboard</span><br></br><br></br></b>Save the selected recipes and ingredients above to your clipboard. After saving, you can "paste" the items to your notes.
+            </div>)}
             </div>
         </div>
     );
