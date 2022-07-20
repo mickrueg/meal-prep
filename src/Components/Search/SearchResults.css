@@ -51,3 +51,6 @@ img.resultImage:hover{
     margin-bottom: 10px;
 }
 
+.clicked{
+    background-color: grey;
+}

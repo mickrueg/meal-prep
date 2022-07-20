@@ -20,7 +20,8 @@ function App() {
   const [mainRecipes, setMainRecipes] = useState([]);
   const [mainIngredients, setMainIngredients] = useState([]);
   const [mainIngredientsOrganized, setMainIngredientsOrganized] = useState([]);
-
+  const [exportState, setExportState] = useState('greenButton');
+  const [exportText, setExportText] = useState('save to clipboard');
 
   return (
     <div className="App">
@@ -38,7 +39,9 @@ function App() {
           mainImages, setMainImages,
           mainRecipes, setMainRecipes,
           mainIngredients, setMainIngredients,
-          mainIngredientsOrganized, setMainIngredientsOrganized}
+          mainIngredientsOrganized, setMainIngredientsOrganized,
+          exportState, setExportState,
+          exportText, setExportText }
         }>
           <MealPrepMain />
           <SearchMain/>

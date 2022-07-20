@@ -16,7 +16,9 @@ const InfoMeal = () => {
         mainIngredients, setMainIngredients,
         mainRecipes, setMainRecipes,
         setSearchContainerState,
-        setInfoState} 
+        setInfoState,
+        setExportState,
+        setExportText } 
         = useContext(InfoContext);
     const ingredientsArray = []
     mealIngredients.forEach((item) =>{
@@ -121,6 +123,8 @@ const InfoMeal = () => {
         setMainRecipes(()=>[...updatedRecipeList])
 
         setSearchContainerState('SearchContainer');
+        setExportState('greenButton');
+        setExportText('save to clipboard');
         setInfoState('InfoContainer');
     }
 

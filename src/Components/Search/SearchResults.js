@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import './SearchResults.css';
 import imageNA from "../../assets/imageNA.png";
 import { InfoContext } from '../Info/InfoContext';
 
 //Search Functionality
 const SearchResults = () => {
-    
     //States
-    const [displayResults, setDisplayResults] = useState()
+    const [displayResults, setDisplayResults] = useState();
     const { setInfoState,
         setSearchContainerState,
         setMealImage,
@@ -18,7 +17,9 @@ const SearchResults = () => {
         mealType,
         setSearchMain,
         mainRecipes, setMainRecipes,
-        mainIngredients, setMainIngredients, 
+        mainIngredients, setMainIngredients,
+        setExportState,
+        setExportText 
         } 
         = useContext(InfoContext);
     
@@ -28,13 +29,6 @@ const SearchResults = () => {
         setSearchMain(`SearchMain mid`);
     }
 
-    //Add to Main
-    const addToMain = (selected) =>{
-        // setMainImages([...mainImages, selected.recipe.images.THUMBNAIL.url]);
-        // setMainRecipes([...mainRecipes, selected.recipe.url]);
-        // setMainIngredients([...mainIngredients, selected.recipe.ingredients]);
-    }
-
 
     //Link to API
     const url= `https://api.edamam.com/api/recipes/v2?type=public&q=${searchKeyword}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
@@ -42,7 +36,6 @@ const SearchResults = () => {
 
     //UseEffect to fetch from API each time a new search is performed
     useEffect(()=>{
-        // fetch(`../example.json`)
         fetch(mealType==='all'? url : url+`&mealType=${mealType}`)
         .then(res=>res.json())
         .then(res=>{
@@ -145,7 +138,9 @@ const SearchResults = () => {
                             console.log(updatedRecipeList)
                             setMainRecipes(()=>[...updatedRecipeList])
 
-                            setSearchContainerState('SearchContainer')
+                            setSearchContainerState('SearchContainer');
+                            setExportState('greenButton');
+                            setExportText('save to clipboard');
                         }
 
 
@@ -178,8 +173,9 @@ const SearchResults = () => {
                                             }}>Ingredients</span>
                                     </div>
                                     <div className='buttonContainer'>
-                                        <span className='greenButton' onClick={()=>{
+                                        <span className='greenButton' onClick={(e)=>{
                                             addMealPrep();
+                                            // e.target.classList.add('clicked');
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>
@@ -195,6 +191,8 @@ const SearchResults = () => {
 
     //Monitor change in searchKeyword and mealType
     [searchKeyword, mealType])
+
+
 
     return (
         <div className='SearchResults'>
