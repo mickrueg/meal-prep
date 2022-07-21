@@ -9,7 +9,17 @@
 
 .imageContainer{
     width: 80%;
+}
 
+.infoImageContainer{
+    position: relative;
+}
+
+.recipe.info{
+    position: absolute;
+    font-size: x-large;
+    width: 100%;
+    height: 100%;
 }
 
 .MealImage{
@@ -71,10 +81,6 @@
     margin: 0;
 }
 
-.InfoMeal .recipe{
-    font-size: x-large;
-    visibility: hidden;
-}
 
 
 
