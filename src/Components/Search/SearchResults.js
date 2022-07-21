@@ -149,6 +149,7 @@ const SearchResults = () => {
                             <div className='resultContainer' key={index}>
                                 <div className='imageContainer'>
                                 <a href={recipeLink} target="_blank" rel='noreferrer' className='RecipeLink'>
+                                    <div className='recipe'>RECIPE</div>
                                     <img 
                                         src={recipeImageThumbnail}
                                         onError={({currentTarget})=>{

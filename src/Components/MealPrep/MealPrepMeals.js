@@ -35,6 +35,7 @@ const MealPrepMeals = () => {
                         <div className='resultContainer main' key={index}>
                             <div className='imageContainer'>
                             <a href={e.recipe} target="_blank" rel='noreferrer' className='RecipeLink'>
+                                <div className='recipe'>RECIPE</div>
                                 <img 
                                     src={e.thumbnail}
                                     onError={({currentTarget})=>{

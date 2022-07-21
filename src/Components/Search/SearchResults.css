@@ -31,10 +31,13 @@
 img.resultImage{
     grid-area: 1 / 1 ;
     height: 120px;
+    z-index: 1;
+    transition: 300ms ease;
 }
 
 img.resultImage:hover{
-    opacity: .5;
+    opacity: .3;
+    transition: 500ms ease;
 }
 
 .textContainer{
@@ -54,3 +57,24 @@ img.resultImage:hover{
 .clicked{
     background-color: grey;
 }
+
+.RecipeLink{
+    position: relative;
+    text-decoration: none;
+}
+
+.recipe{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    z-index: -1;
+    color: rgb(55, 55, 55);
+    font-weight: bold;
+    opacity: 1;
+    font-size: large;
+}
+

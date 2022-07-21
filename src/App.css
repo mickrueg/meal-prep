@@ -48,3 +48,22 @@ hr{
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.greenButton:hover{
+    background-color: #4f6c42;
+}
+
+.singleIngredient{
+    margin-bottom: 15px;
+    display: flex;
+    align-content: center;
+    font-size: medium;
+}
+
+.singleIngredientX{
+    margin: 0;
+    margin-right: 10px;
+    font-size: x-large;
+    width: 20px;
+    height: 20px;
+}

@@ -132,6 +132,7 @@ const InfoMeal = () => {
         <div className='InfoMeal'>
             <div className='scrollable'>
                     <a href={mealRecipe} target="_blank" rel='noreferrer' className='RecipeLink'>
+                        <div className='recipe'>RECIPE</div>
                         <img className='MealImage' src={mealImage} alt="Meal Selected"
                             onLoad={({currentTarget})=>{
                                 currentTarget.style.display = 'block';
