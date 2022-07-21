@@ -1,0 +1,91 @@
+.InfoMeal{
+    margin: 5px;
+    /* border-color: blue; */
+    height: 80%;
+    overflow-y: auto;
+}
+
+.imageContainer{
+    width: 100%;
+}
+
+.MealImage{
+    width: 100%;
+}
+
+.MealImage:hover{
+    opacity: .5;
+}
+
+
+.IngredientHeaderContainer{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-right: 5px;
+    background-color: white;
+}
+
+.IngredientHeaderContainerBackground{
+    position: absolute;
+    height: 40px;
+    width: 83%;
+    background-color: white;
+    opacity: .7;
+    z-index: 3; 
+    /* border: solid; */
+}
+
+.IngredientHeaderContainer h3{
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px;
+}
+
+
+.IngredientHeaderContainer .greenButton{
+    padding-top: 2px;
+    padding-bottom: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: medium;
+
+}
+
+.scrollable{
+    padding-bottom: 300px;
+}
+
+.ingredientList{
+    list-style-type: none; 
+    padding: 0;
+}
+
+.singleIngredient{
+    margin-bottom: 15px;
+    display: flex;
+    align-content: center;
+    font-size: medium;
+}
+
+.singleIngredientX{
+    margin: 0;
+    margin-right: 10px;
+    font-size: x-large;
+    width: 18px;
+    height: 18px;
+}
+
+.InfoMeal hr{
+    margin: 0;
+}
+
+
+
+
+@media only screen and (min-width: 700px){
+    .InfoMeal{
+        height: 92%;
+    }
+}

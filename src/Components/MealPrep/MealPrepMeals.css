@@ -1,0 +1,27 @@
+.MealPrepMeals{
+    height: 98%;
+    margin: 5px;
+    overflow-y: auto;
+    margin-top: 0;
+    
+}
+
+.MealPrepMealsContainer{
+    padding-bottom: 200px;
+    padding-top: 15px;
+    font-size: medium;
+
+}
+
+.resultContainer.main{
+    margin-bottom: 10px;
+    /* font-size: large; */
+}
+
+.export{
+    margin: 0;
+    padding-top: 3px;
+}
+
+
+
