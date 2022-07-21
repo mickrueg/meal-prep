@@ -135,19 +135,19 @@ const InfoMeal = () => {
             
             <div className='scrollable'>
                     <div className="infoImageContainer">
-                    <div className='recipe info'>RECIPE</div>
-                    <a href={mealRecipe} target="_blank" rel='noreferrer' className='RecipeLink'>
-                        <img className='MealImage' src={mealImage} alt="Meal Selected"
-                            onLoad={({currentTarget})=>{
-                                currentTarget.style.display = 'block';
-                            }} 
-                            onError={({currentTarget})=>{
-                                currentTarget.onerror = null;
-                                console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
-                                currentTarget.style.display = 'none';
-                            }}/>
-                    </a>
-                    </div>
+                        <div className='recipe info'>RECIPE</div>
+                        <a href={mealRecipe} target="_blank" rel='noreferrer' className='RecipeLink'>
+                            <img className='MealImage' src={mealImage} alt="Recipe Link"
+                                onLoad={({currentTarget})=>{
+                                    currentTarget.style.display = 'block';
+                                }} 
+                                onError={({currentTarget})=>{
+                                    currentTarget.onerror = null;
+                                    console.log("Meal image inaccessible (403 Error). Display NA placeholder.")
+                                    currentTarget.style.display = 'none';
+                                }}/>
+                        </a>
+                        </div>
                 <div className='IngredientHeaderContainer'>
                     <h3>Ingredients</h3>
                     <span className='greenButton' onClick={()=>{addMealPrep()}}>+ Meal Prep</span>

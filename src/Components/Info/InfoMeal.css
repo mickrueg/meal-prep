@@ -1,18 +1,16 @@
-
-
 .InfoMeal{
     margin: 5px;
-    /* border-color: blue; */
     height: 80%;
     overflow-y: auto;
 }
 
-.imageContainer{
-    width: 80%;
-}
+
 
 .infoImageContainer{
     position: relative;
+    width: 93%;
+    margin: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(117, 117, 117, 0.629);
 }
 
 .recipe.info{
@@ -23,6 +21,7 @@
 }
 
 .MealImage{
+    grid-area: 1/1;
     width: 100%;
     transition: 300ms ease;
 }
