@@ -89,7 +89,7 @@ const MealPrepMeals = () => {
             return `${e.label}\n${e.recipe}\n`
         })
         const ingredients = mainIngredients.map((e)=>{
-            return `${capitalize(e.food)} - ${Math.round(e.quantity*100)/100} ${(e.measure=="<unit>" ? null : e.measure)}\n`
+            return `${capitalize(e.food)} - ${Math.round(e.quantity*100)/100} ${(e.measure=="<unit>" || e.measure==null ? '' : e.measure)}\n`
         })
 
         navigator.clipboard.writeText(
