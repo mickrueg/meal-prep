@@ -1,7 +1,7 @@
 .MealPrepMeals{
     height: 98%;
     margin: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-top: 0;
     
 }
