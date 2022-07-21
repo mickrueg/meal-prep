@@ -16,6 +16,7 @@ const InfoMeal = () => {
         mainIngredients, setMainIngredients,
         mainRecipes, setMainRecipes,
         setSearchContainerState,
+        setSearchMain,
         setInfoState,
         setExportState,
         setExportText } 
@@ -123,6 +124,7 @@ const InfoMeal = () => {
         setMainRecipes(()=>[...updatedRecipeList])
 
         setSearchContainerState('SearchContainer');
+        setSearchMain(`SearchMain`);
         setExportState('greenButton');
         setExportText('save to clipboard');
         setInfoState('InfoContainer');
@@ -130,6 +132,7 @@ const InfoMeal = () => {
 
     return (
         <div className='InfoMeal'>
+            
             <div className='scrollable'>
                     <a href={mealRecipe} target="_blank" rel='noreferrer' className='RecipeLink'>
                         <div className='recipe'>RECIPE</div>

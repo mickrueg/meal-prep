@@ -1,6 +1,7 @@
 .SearchResults{
     margin: 5px;
     padding-bottom: 300px;
+
 }
 
 .resultContainer{
@@ -22,15 +23,11 @@
     margin-left: 10px;
 }
 
-.imageContainer{
-    height: 120px;
-    width: 120px;
-    overflow: hidden;
-}
 
 img.resultImage{
     grid-area: 1 / 1 ;
     height: 120px;
+    width: 120px;
     z-index: 1;
     transition: 300ms ease;
 }
@@ -61,6 +58,7 @@ img.resultImage:hover{
 .RecipeLink{
     position: relative;
     text-decoration: none;
+    
 }
 
 .recipe{

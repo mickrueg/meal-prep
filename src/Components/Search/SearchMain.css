@@ -19,6 +19,7 @@
 .SearchMain{
     width: 90%;
     height: auto;
+    
 }
 
 .SearchHeader{
@@ -29,7 +30,8 @@
 
 .SearchResultsContainerTop{
     margin:0;
-    margin-top: 20px
+    margin-top: 20px;
+    
 }
 
 .SearchResultsContainer{
@@ -37,7 +39,6 @@
     width: 100%;
     padding-top: 20px;
     overflow-y: auto;
-
 }
 
 @media only screen and (min-width: 700px){
