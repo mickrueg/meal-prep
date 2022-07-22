@@ -3,12 +3,12 @@
 [Meal Prep](https://mickrueg-meal-prep.netlify.app/)
 
 ## Description
-<hr>
+
 
 This mobile and desktop friendly web application helps procrastinators with quickly creating a grocery list. Backed by thousands of real recipes, this app simply consolidates the ingredients needed for all intended recipes. 
 
 ## Design & Wireframes
-<hr>
+
 
 The app consists of three main components. A main component that keeps the selected recipes and ingredients in order; the search component that allows the user to search for a recipe; and the information component that lists the selected recipe's ingredients. 
 <br />
@@ -30,7 +30,7 @@ The app consists of three main components. A main component that keeps the selec
 <br /><br />
 
 ## Planning
-<hr>
+
 
 The original design was created in Canva and collected together in Figma. Here was the original wireframe.
 <br />
@@ -42,7 +42,7 @@ The original design was created in Canva and collected together in Figma. Here w
 <br />
 
 ## Technologies Used
-<hr>
+
 
 ### React, JavaScript, CSS
 This application was built with React JS. Nine components were created in this app. In order to track selected recipes, the UseState and UseContext are relied on.
@@ -56,12 +56,12 @@ API calls are being made to [Edamam](https://www.edamam.com/). The call returns 
 <br/>
 
 ## Getting Started/Installation Instructions
-<hr>
+
 
 To run the application, click the [live link here](https://mickrueg-meal-prep.netlify.app/).
 
 <br />
 
 ## Contribution Guidelines
-<hr>
+
 You may fork/clone this repository to run the code. You may contribute to the code by sending a push request to this repository.
