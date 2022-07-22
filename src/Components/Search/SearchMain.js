@@ -36,7 +36,7 @@ const SearchMain = () => {
                 >
                 <div className={searchContainerState} ref={nodeRef}>
                     <div className={searchMain}>
-                        <div className='SearchHeader' id="handle">
+                        <div className='SearchHeader' id="handle" >
                             <h1 onClick={mobileSnap}>Search</h1>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="arrow" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d={arrow}/>

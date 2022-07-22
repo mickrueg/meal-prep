@@ -78,7 +78,7 @@ const SearchResults = () => {
                                 while (next){
                                     for(let j=0; j<previousIngredients.length; j++){
                                         if(previousIngredients.length>0 && 
-                                            newIngredients[i].food===previousIngredients[j].food &&
+                                            newIngredients[i].food.toLowerCase()===previousIngredients[j].food.toLowerCase() &&
                                             newIngredients[i].measure===previousIngredients[j].measure
                                             ){
                                                 previousIngredients[j].quantity += newIngredients[i].quantity;
