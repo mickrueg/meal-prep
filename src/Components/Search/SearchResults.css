@@ -1,6 +1,7 @@
 .SearchResults{
     margin: 5px;
     padding-bottom: 300px;
+
 }
 
 .resultContainer{
@@ -22,19 +23,19 @@
     margin-left: 10px;
 }
 
-.imageContainer{
-    height: 120px;
-    width: 120px;
-    overflow: hidden;
-}
 
 img.resultImage{
     grid-area: 1 / 1 ;
     height: 120px;
+    width: 120px;
+    z-index: 1;
+    transition: 300ms ease;
+    box-shadow: 0px 0px 5px 0px rgba(117, 117, 117, 0.629);
 }
 
 img.resultImage:hover{
-    opacity: .5;
+    opacity: .3;
+    transition: 500ms ease;
 }
 
 .textContainer{
@@ -54,3 +55,25 @@ img.resultImage:hover{
 .clicked{
     background-color: grey;
 }
+
+.RecipeLink{
+    position: relative;
+    text-decoration: none;
+    
+}
+
+.recipe{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    z-index: -1;
+    color: rgb(55, 55, 55);
+    font-weight: bold;
+    opacity: 1;
+    font-size: large;
+}
+

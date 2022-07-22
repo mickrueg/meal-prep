@@ -35,6 +35,7 @@ const MealPrepMeals = () => {
                         <div className='resultContainer main' key={index}>
                             <div className='imageContainer'>
                             <a href={e.recipe} target="_blank" rel='noreferrer' className='RecipeLink'>
+                                <div className='recipe'>RECIPE</div>
                                 <img 
                                     src={e.thumbnail}
                                     onError={({currentTarget})=>{
@@ -78,7 +79,7 @@ const MealPrepMeals = () => {
             {mainIngredients.map((e,index)=>{
                 return(<li key={index} className='singleIngredient'>
                     <input type="checkbox" className="singleIngredientX" defaultChecked={false}/>
-                    {capitalize(e.food)} - {Math.round(e.quantity*100)/100} {(e.measure=="<unit>" ? null : e.measure)}
+                    <span className='singleIngredientText'>{capitalize(e.food)} - {Math.round(e.quantity*100)/100} {(e.measure=="<unit>" ? null : e.measure)}</span>
                 </li>)
             })}
         </ul>)
@@ -89,7 +90,7 @@ const MealPrepMeals = () => {
             return `${e.label}\n${e.recipe}\n`
         })
         const ingredients = mainIngredients.map((e)=>{
-            return `${capitalize(e.food)} - ${Math.round(e.quantity*100)/100} ${(e.measure=="<unit>" ? null : e.measure)}\n`
+            return `${capitalize(e.food)} - ${Math.round(e.quantity*100)/100} ${(e.measure=="<unit>" || e.measure==null ? '' : e.measure)}\n`
         })
 
         navigator.clipboard.writeText(

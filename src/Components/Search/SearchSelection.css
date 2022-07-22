@@ -1,8 +1,3 @@
-.SearchSelection{
-
-}
-
-
 .mealChoices{
     font-weight: bold;
     background-color: white;
@@ -31,6 +26,11 @@
     border-width: 2px;
 }
 
+.mealChoice:hover{
+    background-color: #4f6c42;
+    color: white;
+}
+
 .mealChoice.selected{
     background-color: #7e9b65;
     border-radius: 20px;
@@ -50,6 +50,7 @@
 }
 
 .searchBoxInput{
+
     font-family: 'Anonymous Pro', monospace;
     font-size: medium;
     width:10px;
@@ -79,6 +80,6 @@
     cursor: pointer;
 }
 
-.RecipeLink{
-    text-decoration: none;
+.searchBoxButton:hover{
+    background-color: #4f6c42;
 }

@@ -8,7 +8,7 @@
     /* top: 55px; */
     background-color: #d1e0b4;
     transition: 500ms ease;
-    box-shadow: 0px 0px 10px 0px rgba(117, 117, 117, 0.629);
+    box-shadow: 0px 0px 8px 0px rgba(117, 117, 117, 0.629);
 }
 
 .SearchContainer.Up{
@@ -19,6 +19,7 @@
 .SearchMain{
     width: 90%;
     height: auto;
+    
 }
 
 .SearchHeader{
@@ -29,7 +30,8 @@
 
 .SearchResultsContainerTop{
     margin:0;
-    margin-top: 20px
+    margin-top: 20px;
+    
 }
 
 .SearchResultsContainer{
@@ -37,7 +39,6 @@
     width: 100%;
     padding-top: 20px;
     overflow-y: auto;
-
 }
 
 @media only screen and (min-width: 700px){

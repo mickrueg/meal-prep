@@ -5,12 +5,13 @@
     display: flex;
     justify-content: center;
     transition: 500ms ease;
+    box-shadow: inset 0px 8px 8px -8px rgba(117, 117, 117, 0.629);
 }
 
 .MealPrepMain{
     width: 90%;
     height: auto;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .MealPrepMain hr{
@@ -21,13 +22,13 @@
 .MealPrepHeader{
     display: flex;
     justify-content: space-between;
+    padding-bottom: 5px;
 }
 
 
 img.Edamam{
     height: 30px;
     margin-right: -38px;
-    margin-top: -10px;
     margin-bottom: -10px;
     z-index: -1;
 }

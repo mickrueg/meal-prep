@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# React Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Meal Prep](https://mickrueg-meal-prep.netlify.app/)
 
-## Available Scripts
+# Portfolio Project
 
-In the project directory, you can run:
+[Mike Krueger Porfolio](https://mickrueg.github.io/portfolio/)
 
-### `npm start`
+## Description
+This mobile and desktop friendly web application helps procrastinators with quickly creating a grocery list. Backed by thousands of real recipes, this app simply consolidates the ingredients needed for all intended recipes. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Design & Wireframes
+The app consists of three main components. A main component that keeps the selected recipes and ingredients in order; the search component that allows the user to search for a recipe; and the information component that lists the selected recipe's ingredients. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> Main Component
+![](src/wireframes/Final/Screen%20Shot%202022-07-21%20at%205.46.10%20PM.png)
+>
+>Search Component
+![](src/wireframes/Final/Screen%20Shot%202022-07-21%20at%205.46.30%20PM.png)
+>
+>Information Component
+![](src/wireframes/Final/Screen%20Shot%202022-07-21%20at%205.47.02%20PM.png)
 
-### `npm test`
+## Planning
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The original design was created in Canva and collected together in Figma. Here was the original wireframe.
 
-### `npm run build`
+>Wireframe
+![](src/wireframes/Drafts/Wireframes.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React, JavaScript, CSS
+This application was built with React JS. Nine components were created in this app. In order to track selected recipes, the UseState and UseContext are relied on.
 
-### `npm run eject`
+### Export
+Because the user's activities are erased every time the app reloads, I installed an "save to clipboard" function. This allows the user to easily copy/paste the recipes and ingredients to their notes for future reference.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Fetch
+API calls are being made to [Edamam](https://www.edamam.com/). The call returns links to recipes, ingredients, and images.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started/Installation Instructions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To run the application, click the [live link here](https://mickrueg-meal-prep.netlify.app/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contribution Guidelines
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You may fork/clone this repository to run the code. You may contribute to the code by sending a push request to this repository.
