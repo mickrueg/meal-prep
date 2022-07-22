@@ -4,13 +4,10 @@
     overflow-y: auto;
 }
 
-
-
 .infoImageContainer{
     position: relative;
     width: 93%;
     margin: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(117, 117, 117, 0.629);
 }
 
 .recipe.info{
@@ -21,7 +18,9 @@
 }
 
 .MealImage{
+    box-shadow: 0px 0px 10px 0px rgba(117, 117, 117, 0.629);
     grid-area: 1/1;
+    border-radius: 10px;
     width: 100%;
     transition: 300ms ease;
 }
@@ -30,7 +29,6 @@
     opacity: .3;
     transition: 300ms ease;
 }
-
 
 .IngredientHeaderContainer{
     display: flex;
@@ -79,9 +77,6 @@
 .InfoMeal hr{
     margin: 0;
 }
-
-
-
 
 
 @media only screen and (min-width: 700px){
