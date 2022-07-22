@@ -11,14 +11,13 @@ const MealPrepMeals = () => {
 
     const [displayMainIngredients, setDisplayMainIngredients] = useState();
     const [displayMainRecipes, setDisplayMainRecipes] = useState();
-    const { mainImages,
+    const {
         mainRecipes,
-        mainIngredients, setMainIngredients,
+        mainIngredients,
         setInfoState, setSearchMain,
         setMealImage,setMealLabel,
         setMealRecipe,
         setMealIngredients,
-        mainIngredientsOrganized, setMainIngredientsOrganized,
         exportState, setExportState,
         exportText, setExportText } = useContext(InfoContext);
 
@@ -26,7 +25,6 @@ const MealPrepMeals = () => {
         setInfoState('InfoContainer Up');
         setSearchMain(`SearchMain mid`);
     }
-
 
     useEffect(()=>{
         setDisplayMainRecipes(<div>

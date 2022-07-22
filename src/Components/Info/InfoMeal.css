@@ -4,8 +4,6 @@
     overflow-y: auto;
 }
 
-
-
 .infoImageContainer{
     position: relative;
     width: 93%;
@@ -30,7 +28,6 @@
     opacity: .3;
     transition: 300ms ease;
 }
-
 
 .IngredientHeaderContainer{
     display: flex;
@@ -79,9 +76,6 @@
 .InfoMeal hr{
     margin: 0;
 }
-
-
-
 
 
 @media only screen and (min-width: 700px){

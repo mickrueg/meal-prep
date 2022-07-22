@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './SearchResults.css';
 import imageNA from "../../assets/imageNA.png";
 import { InfoContext } from '../Info/InfoContext';
@@ -39,13 +39,13 @@ const SearchResults = () => {
         fetch(mealType==='all'? url : url+`&mealType=${mealType}`)
         .then(res=>res.json())
         .then(res=>{
-            console.log(`Fetch keyword [${searchKeyword}] & meal type [${mealType}]`)
+            console.log(`Search performed. Fetching meal type "${mealType}" & keyword "${searchKeyword}"`)
             const searchResultsArray = res.hits;
             setDisplayResults(
                 searchResultsArray.map((e, index)=>{
 
                     //Before search is performed, display instruction text
-                    if(searchKeyword==null && index==0){
+                    if(searchKeyword==null && index===0){
                         return(
                             <div className='resultContainer' key={index}>
                                 <div className='BlankSearch'>
@@ -78,8 +78,8 @@ const SearchResults = () => {
                                 while (next){
                                     for(let j=0; j<previousIngredients.length; j++){
                                         if(previousIngredients.length>0 && 
-                                            newIngredients[i].food==previousIngredients[j].food &&
-                                            newIngredients[i].measure==previousIngredients[j].measure
+                                            newIngredients[i].food===previousIngredients[j].food &&
+                                            newIngredients[i].measure===previousIngredients[j].measure
                                             ){
                                                 previousIngredients[j].quantity += newIngredients[i].quantity;
                                                 next=false;
@@ -112,7 +112,7 @@ const SearchResults = () => {
                                 while (next){
                                     for(let j=0; j<previousRecipes.length; j++){
                                         if(previousRecipes.length>0 && 
-                                            newRecipe.label==previousRecipes[j].label){
+                                            newRecipe.label===previousRecipes[j].label){
                                                 next=false;
                                             }
                                     }
@@ -176,7 +176,6 @@ const SearchResults = () => {
                                     <div className='buttonContainer'>
                                         <span className='greenButton' onClick={(e)=>{
                                             addMealPrep();
-                                            // e.target.classList.add('clicked');
                                         }}>+ Meal Prep</span>
                                     </div>
                                     <div></div>

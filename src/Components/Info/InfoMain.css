@@ -16,7 +16,6 @@
 .InfoContainer.Up{
     top: 100px;
     transition: 400ms ease;
-    /* display: none; */
 }
 
 .InfoMain{
