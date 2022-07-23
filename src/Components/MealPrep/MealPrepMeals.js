@@ -19,7 +19,8 @@ const MealPrepMeals = () => {
         setMealRecipe,
         setMealIngredients,
         exportState, setExportState,
-        exportText, setExportText } = useContext(InfoContext);
+        exportText, setExportText,
+        setSearchContainerState } = useContext(InfoContext);
 
     const openIngredientPanel = () =>{
         setInfoState('InfoContainer Up');
@@ -99,7 +100,13 @@ const MealPrepMeals = () => {
     return (
         <div className='MealPrepMeals'>
             <div className='MealPrepMealsContainer'>
-            {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal then click <b>"+ Meal Prep"</b> to add here!</div>:<div><h3>RECIPES</h3>{displayMainRecipes}</div>)}
+            {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal then click <b>"+ Meal Prep"</b> to add here!</div>:
+            <div>
+                <h3>RECIPES</h3>
+                {displayMainRecipes}
+                <br></br>
+                <div className='instructionText'>Use the "Search" tool to add more recipes...</div>
+            </div>)}
             <br></br>
             {(mainIngredients.length<1?<div><h3>GROCERY LIST</h3>Once your meals are selected, all the ingredients will display here :)</div>:<div><h3>GROCERY LIST</h3>{displayMainIngredients}</div>)}
             <br></br>
@@ -114,8 +121,8 @@ const MealPrepMeals = () => {
                         setExportState('greenButton clicked');
                         setExportText('saved to clipboard');
 
-                    }}>{exportText}</span>
-                    <br></br><br></br></b>Save the recipes and ingredients above to your clipboard. After saving, you can "paste" the items to your notes.
+                    }}>{exportText}</span></b>
+                    <br></br><br></br><div className='instructionText'>Save the recipes and ingredients above to your clipboard. After saving, you can "paste" the items to your notes.</div>
             </div>)}
             </div>
         </div>
