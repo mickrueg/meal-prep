@@ -178,7 +178,7 @@ const SearchResults = () => {
                 setDisplayResults(
                             <>
                                 <div className='BlankSearch'>
-                                Here's a random list of healthy meals! Try searching by <b>meal type</b> or <b>keyword</b> above to refresh the results and display some tasty dishes!
+                                Here's a random list of healthy meals! Try searching by <b>meal type</b> or <b>keyword</b> above to refresh the results and display some more tasty dishes...
                                 </div>
                                 {fetchAndDisplayResults(searchResultsArray)}
                             </>
