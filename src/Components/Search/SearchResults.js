@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './SearchResults.css';
 import imageNA from "../../assets/imageNA.png";
 import { InfoContext } from '../Info/InfoContext';
+import LoadingSpinner from '../../assets/LoadingSpinner.gif';
 
 //Search Functionality
 const SearchResults = () => {
@@ -168,13 +169,17 @@ const SearchResults = () => {
 
 
     //UseEffect to fetch from API each time a new search is performed
-    useEffect(()=>{
+    const [loading, setLoading] = useState(true);
+    
+    useEffect((loading)=>{
+        setLoading(true);
         if(searchKeyword==null){
             fetch(urlRandom)
             .then(res=>res.json())
             .then(res=>{
                 console.log("Fetching random healthy dishes.")
                 const searchResultsArray = res.hits;
+                setLoading(false);
                 setDisplayResults(
                             <>
                                 <div className='BlankSearch'>
@@ -187,12 +192,13 @@ const SearchResults = () => {
             .catch(console.error)
             
         } else{
-
+            setLoading(true);
             fetch(mealType==='all'? url : url+`&mealType=${mealType}`)
             .then(res=>res.json())
             .then(res=>{
                 console.log(`Search performed. Fetching meal type "${mealType}" & keyword "${searchKeyword}"`)
                 const searchResultsArray = res.hits;
+                setLoading(false);
                 setDisplayResults(
                     fetchAndDisplayResults(searchResultsArray)
                 )
@@ -209,7 +215,7 @@ const SearchResults = () => {
 
     return (
         <div className='SearchResults'>
-            {displayResults}
+            {loading? <div className='LoadingContainer'><span className='LoadingText'>Loading results...</span><img className="LoadingSpinner" src={LoadingSpinner} alt="Results loading spinner"/></div> : displayResults}
         </div>
     );
 };

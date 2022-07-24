@@ -73,9 +73,28 @@ img.resultImage:hover{
     justify-content: center;
     align-content: center;
     z-index: -1;
-    color: rgb(55, 55, 55);
+    color: #373737;
     font-weight: bold;
     opacity: 1;
     font-size: large;
+}
+
+.LoadingContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.LoadingText{
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.LoadingSpinner{
+    height: 40px;
 }
 
