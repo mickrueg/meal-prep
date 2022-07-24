@@ -199,9 +199,7 @@ const SearchResults = () => {
                 console.log(`Search performed. Fetching meal type "${mealType}" & keyword "${searchKeyword}"`)
                 const searchResultsArray = res.hits;
                 setLoading(false);
-                setDisplayResults(
-                    fetchAndDisplayResults(searchResultsArray)
-                )
+                (searchResultsArray.length>0 ? setDisplayResults(fetchAndDisplayResults(searchResultsArray)) : setDisplayResults(<div>No results :( Try searching for something different!</div>))
             })
             .catch(console.error)
         }
