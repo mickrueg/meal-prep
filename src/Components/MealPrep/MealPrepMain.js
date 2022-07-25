@@ -11,7 +11,7 @@ const MealPrepMain = () => {
             <div className='MealPrepMain'>
                 <div className='MealPrepHeader'>
                     <h1>Meal Prep</h1>
-                    <a href='https://www.edamam.com/' target="_blank" rel="noreferrer">
+                    <a href='https://www.edamam.com/' target="_blank" rel="noopener noreferrer">
                         <img className="Edamam" src={EdamamBadge} alt='Powered by Edamam' />
                     </a>
                 </div>

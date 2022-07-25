@@ -100,6 +100,12 @@ const MealPrepMeals = () => {
     return (
         <div className='MealPrepMeals'>
             <div className='MealPrepMealsContainer'>
+            <div className='BuiltBy'>Built by&nbsp;
+                <a href='https://mikekrueger.netlify.app/' target="_blank" rel="noopener noreferrer">
+                    Mike Krueger
+                </a>
+                &nbsp;in ReactJS
+            </div>
             {(mainRecipes.length<1?<div><h3>RECIPES</h3>Search for a tasty meal then click <b>"+ Meal Prep"</b> to add here!</div>:
             <div>
                 <h3>RECIPES</h3>
@@ -124,6 +130,7 @@ const MealPrepMeals = () => {
                     }}>{exportText}</span></b>
                     <br></br><br></br><div className='instructionText'>Save the recipes and ingredients above to your clipboard. After saving, you can "paste" the items to your notes.</div>
             </div>)}
+
             </div>
         </div>
     );

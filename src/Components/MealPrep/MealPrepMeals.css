@@ -8,7 +8,7 @@
 
 .MealPrepMealsContainer{
     padding-bottom: 100px;
-    padding-top: 15px;
+    padding-top: 5px;
     font-size: medium;
 
 }
@@ -24,10 +24,12 @@
 }
 
 .instructionText{
-    font-style: italic;
     margin-left: 5px;
 }
 
+.BuiltBy{
+    font-size: 12px;
+}
 
 
 
