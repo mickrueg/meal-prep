@@ -17,7 +17,7 @@ const SearchMain = () => {
     const nodeRef = React.useRef(null);
 
     const [arrow, setArrow] = useState(upArrow);
-    const [isReleased, setisReleased] = useState(false);
+    const [isReleased, setisReleased] = useState(true);
     const {setInfoState, searchMain, searchContainerState, setSearchContainerState} = useContext(InfoContext);
 
     const mobileSnap = () =>{

@@ -8,14 +8,14 @@
     justify-content: center;
     background-color: white;
     border-radius: 30px;
-    transition: 400ms ease;
+    /* transition: 400ms ease; */
     z-index: 2;
     box-shadow: 0px 0px 8px 0px rgba(117, 117, 117, 0.629);
 }
 
 .InfoContainer.Up{
     top: 100px;
-    transition: 400ms ease;
+    /* transition: 400ms ease; */
 }
 
 .InfoMain{
