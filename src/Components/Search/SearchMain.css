@@ -6,14 +6,14 @@
     justify-content: center;
     top: calc(100% - 48px);
     background-color: #d1e0b4;
-    transition: 500ms ease;
+    /* transition: 500ms ease; */
     box-shadow: 0px 0px 8px 0px rgba(117, 117, 117, 0.629);
 }
 
 .SearchContainer.Up{
     top: 55px;
-    transition: 500ms ease;
 }
+
 
 .SearchMain{
     width: 90%;
